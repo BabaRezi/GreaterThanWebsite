@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Greater Than Apparel — Custom &amp; Ready-Made Clothing, UK</title>
+<link rel="icon" type="image/png" href="Images/Greater Than Logo.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;1,400&family=Jost:wght@200;300;400&family=Yeseva+One&family=Space+Grotesk:wght@300;400;500&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f8f4ee;color:#1a1208;font-family:'DM Sans',sans-serif;font-weight:400;overflow-x:hidden;line-height:1.6}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:'DM Sans',sans-serif}
+ul{list-style:none}
+:root{
+  --cream:#f8f4ee;--cream-d:#ede8df;--gold:#8b6845;--goldb:#b8986a;
+  --gl:rgba(139,104,69,0.1);--gb:rgba(139,104,69,0.22);
+  --ink:#1a1208;--inkm:#3d2e1a;--inkl:#7a6a56;--inkx:#b5a896;
+  --white:#ffffff;--serif:'Cormorant Garamond',serif;--sans:'DM Sans',sans-serif;
+  --tr:all 0.32s cubic-bezier(0.4,0,0.2,1);
+}
+.page{display:none;min-height:100vh;animation:fadeUp 0.4s ease forwards}
+.page.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(248,244,238,0.94);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--gb);transition:var(--tr)}
+.nav-logo{display:flex;align-items:center;gap:8px;cursor:pointer}
+.nav-logo img{height:58px;width:auto;object-fit:contain}
+.nav-logo-fb{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--ink);display:none}
+.nav-logo-fb span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:0.77rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;
+  color:var(--inkl);transition:var(--tr);position:relative;cursor:pointer}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1.5px;
+  background:var(--gold);transition:width 0.25s ease}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%}
+.nav-dd{position:relative}
+.nav-dd-menu{position:absolute;top:100%;left:0;
+  background:rgba(248,244,238,0.98);backdrop-filter:blur(20px);
+  border:1px solid var(--gb);border-top:2px solid var(--gold);
+  min-width:210px;padding:8px 0;opacity:0;pointer-events:none;
+  transform:translateY(6px);transition:var(--tr);z-index:200}
+.nav-dd:hover .nav-dd-menu{opacity:1;pointer-events:all;transform:translateY(0)}
+.nav-dd-menu a{display:block;padding:10px 20px;font-size:0.74rem;
+  letter-spacing:0.08em;text-transform:uppercase;color:var(--inkl);
+  transition:var(--tr);cursor:pointer}
+.nav-dd-menu a:hover{color:var(--gold);padding-left:26px;background:var(--gl)}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.nav-cart{display:flex;align-items:center;gap:7px;padding:8px 16px;border-radius:2px;
+  border:1.5px solid var(--gb);font-size:0.73rem;letter-spacing:0.1em;text-transform:uppercase;
+  font-weight:500;color:var(--gold);transition:var(--tr)}
+.nav-cart:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+.cart-count{background:var(--gold);color:#fff;font-size:0.58rem;font-weight:700;
+  width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:4px;cursor:pointer}
+.hamburger span{width:22px;height:1.5px;background:var(--ink);transition:var(--tr)}
+
+/* BUTTONS */
+.btn-p{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--cream);
+  font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;
+  padding:13px 30px;border-radius:2px;transition:var(--tr)}
+.btn-p:hover{background:var(--gold);transform:translateY(-2px)}
+.btn-g{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#fff;
+  font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;
+  padding:13px 30px;border-radius:2px;transition:var(--tr)}
+.btn-g:hover{background:var(--inkm);transform:translateY(-2px)}
+.btn-o{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--ink);color:var(--ink);
+  font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;
+  padding:12px 30px;border-radius:2px;transition:var(--tr)}
+.btn-o:hover{background:var(--ink);color:var(--cream);transform:translateY(-2px)}
+.btn-gh{display:inline-flex;align-items:center;gap:7px;color:var(--gold);
+  font-size:0.73rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;transition:var(--tr)}
+.btn-gh:hover{gap:13px;color:var(--ink)}
+
+/* LAYOUT */
+section{padding:90px 5%}
+.lbl{font-size:0.67rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:12px;display:block}
+.ttl{font-family:var(--serif);font-size:clamp(2rem,3.6vw,3.2rem);font-weight:400;line-height:1.12;color:var(--ink)}
+.ttl em{font-style:italic;color:var(--gold)}
+.bod{font-size:0.93rem;color:var(--inkl);max-width:520px;line-height:1.85;margin-top:13px}
+.dvd{width:42px;height:1.5px;background:var(--gold);margin:18px 0}
+.gr{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--gb),transparent)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.hero-l{padding:140px 6% 80px 7%;display:flex;flex-direction:column;justify-content:center;
+  border-right:1px solid var(--gb)}
+.hero-ey{display:flex;align-items:center;gap:11px;margin-bottom:26px}
+.hero-ey-d{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.hero-ey span{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.hero-h{font-family:var(--serif);font-size:clamp(3rem,6vw,5.4rem);font-weight:300;
+  line-height:1.0;color:var(--ink);margin-bottom:22px}
+.hero-h strong{font-weight:600}
+.hero-h .acc{color:var(--gold);font-style:italic}
+.hero-sub{font-size:0.97rem;color:var(--inkl);max-width:400px;line-height:1.85;margin-bottom:36px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-trust{margin-top:36px;display:flex;align-items:center;gap:18px;
+  padding-top:26px;border-top:1px solid var(--gb);flex-wrap:wrap}
+.hero-ti{display:flex;align-items:center;gap:7px;font-size:0.74rem;color:var(--inkl)}
+.hero-ti-ic{color:var(--gold);font-size:0.82rem}
+.hero-r{position:relative;overflow:hidden;background:var(--cream-d);min-height:600px}
+.hero-slides{position:absolute;inset:0}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.hero-slide.active{opacity:1}
+.hero-slide img{width:100%;height:100%;object-fit:cover;transition:transform 9s ease}
+.hero-slide.active img{transform:scale(1.04)}
+.hero-cap{z-index:2}
+.hero-cap{position:absolute;bottom:28px;left:24px;
+  background:rgba(248,244,238,0.93);backdrop-filter:blur(8px);
+  padding:11px 16px;border-left:2px solid var(--gold)}
+.hero-cap span{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--inkm);font-weight:500}
+
+/* MARQUEE */
+.mq{background:var(--ink);padding:13px 0;overflow:hidden}
+.mq-t{display:flex;white-space:nowrap;animation:mq 26s linear infinite}
+.mq-t span{display:inline-flex;align-items:center;gap:28px;
+  font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(248,244,238,0.45);padding-right:44px}
+.mq-t span b{color:var(--goldb);font-weight:500}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* PRODUCT GRID */
+.feat-hd{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:44px;flex-wrap:wrap;gap:14px}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:3px}
+.pc{background:var(--white);position:relative;overflow:hidden;cursor:pointer;
+  transition:var(--tr);border:1px solid transparent}
+.pc:hover{border-color:var(--gb);transform:translateY(-3px);box-shadow:0 10px 36px rgba(139,104,69,0.11)}
+.pc-img{aspect-ratio:2/3;overflow:hidden;position:relative;background:var(--cream-d)}
+.pc-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.55s ease}
+.pc:hover .pc-img img{transform:scale(1.05)}
+.pc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,18,8,0.5),transparent 45%);
+  opacity:0;transition:var(--tr)}
+.pc:hover .pc-ov{opacity:1}
+.pc-qa{position:absolute;bottom:16px;left:50%;transform:translateX(-50%) translateY(7px);
+  opacity:0;transition:var(--tr);white-space:nowrap}
+.pc:hover .pc-qa{opacity:1;transform:translateX(-50%) translateY(0)}
+.pc-info{padding:16px 18px 20px}
+.pc-tag{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;font-weight:500}
+.pc-name{font-family:var(--serif);font-size:1.2rem;font-weight:500;color:var(--ink);margin-bottom:3px}
+.pc-price{font-size:0.88rem;color:var(--inkm);font-weight:500}
+.pc-badge{position:absolute;top:12px;left:12px;background:var(--gold);color:#fff;
+  font-size:0.57rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;
+  padding:4px 9px;border-radius:2px}
+
+/* SERVICES DARK STRIP */
+.svc{background:var(--ink);padding:80px 5%}
+.svc .ttl{color:var(--cream)}
+.svc .bod{color:rgba(248,244,238,0.5)}
+.svc .lbl{color:var(--goldb)}
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1px;
+  background:rgba(255,255,255,0.07);margin-top:52px}
+.sc{background:var(--ink);padding:38px 28px;transition:var(--tr);cursor:pointer}
+.sc:hover{background:#241b0e}
+.sc-ic{font-size:1.9rem;margin-bottom:16px;display:block}
+.sc-t{font-family:var(--serif);font-size:1.25rem;color:var(--cream);margin-bottom:9px}
+.sc-d{font-size:0.8rem;color:rgba(248,244,238,0.42);line-height:1.8}
+.sc-lk{display:inline-flex;align-items:center;gap:6px;margin-top:16px;
+  font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--goldb);transition:var(--tr)}
+.sc-lk:hover{gap:11px}
+
+/* LOCAL */
+.loc{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.loc-v{position:relative}
+.loc-img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.loc-bge{position:absolute;bottom:-18px;right:-18px;background:var(--gold);color:#fff;
+  padding:22px 26px;font-family:var(--serif)}
+.loc-bge-n{font-size:2.6rem;font-weight:600;line-height:1;display:block}
+.loc-bge-t{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;margin-top:3px}
+.loc-pts{margin-top:28px;display:flex;flex-direction:column;gap:0}
+.loc-pt{display:flex;align-items:flex-start;gap:13px;padding:15px 0;border-bottom:1px solid var(--gb)}
+.loc-pt-ic{color:var(--gold);font-size:1.05rem;margin-top:2px;flex-shrink:0}
+.loc-pt-t{font-size:0.86rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.loc-pt-d{font-size:0.78rem;color:var(--inkl);line-height:1.7}
+
+/* TESTIMONIALS */
+.tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:3px;margin-top:48px}
+.tc{padding:34px 30px;background:var(--white);border:1px solid transparent;transition:var(--tr)}
+.tc:hover{border-color:var(--gb)}
+.tc-s{color:var(--gold);margin-bottom:16px;letter-spacing:2px;font-size:0.82rem}
+.tc-t{font-family:var(--serif);font-size:1rem;font-weight:400;font-style:italic;
+  line-height:1.75;margin-bottom:20px;color:var(--inkm)}
+.tc-a{display:flex;align-items:center;gap:11px}
+.tc-av{width:36px;height:36px;border-radius:50%;background:var(--gl);border:1.5px solid var(--gb);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:0.95rem;color:var(--gold)}
+.tc-n{font-size:0.83rem;font-weight:600;color:var(--ink)}
+.tc-r{font-size:0.68rem;color:var(--inkx);letter-spacing:0.05em}
+
+/* EMAIL */
+.eml{background:var(--cream-d);padding:76px 5%;text-align:center;
+  border-top:1px solid var(--gb);border-bottom:1px solid var(--gb)}
+.eml-form{display:flex;max-width:440px;margin:32px auto 0;
+  border:1.5px solid var(--gb);border-radius:2px;overflow:hidden;background:var(--white)}
+.eml-in{flex:1;background:transparent;border:none;padding:12px 16px;
+  color:var(--ink);font-family:var(--sans);font-size:0.86rem;outline:none}
+.eml-in::placeholder{color:var(--inkx)}
+.eml-sb{background:var(--ink);color:var(--cream);padding:12px 20px;
+  font-family:var(--sans);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;
+  font-weight:500;transition:var(--tr);border:none;cursor:pointer}
+.eml-sb:hover{background:var(--gold)}
+
+/* SHOP PAGE */
+.sh-hero{padding:136px 5% 46px;background:var(--cream-d);border-bottom:1px solid var(--gb)}
+.sh-ctrl{padding:22px 5%;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  border-bottom:1px solid rgba(139,104,69,0.1);background:var(--white);
+  position:sticky;top:72px;z-index:100}
+.fb{padding:6px 16px;border-radius:2px;font-size:0.68rem;letter-spacing:0.1em;
+  text-transform:uppercase;font-weight:500;border:1.5px solid rgba(139,104,69,0.18);
+  color:var(--inkl);transition:var(--tr);cursor:pointer;background:transparent}
+.fb.active,.fb:hover{border-color:var(--gold);color:var(--gold);background:var(--gl)}
+.fl{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--inkx)}
+.fdv{width:1px;height:17px;background:var(--gb);margin:0 5px}
+.sh-grid{padding:44px 5% 90px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:3px;background:var(--cream-d)}
+
+/* PRODUCT DETAIL */
+.pd-l{padding:116px 5% 90px;display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:start}
+.pd-imgs{position:sticky;top:90px}
+.pd-main{aspect-ratio:2/3;overflow:hidden;background:var(--cream-d);margin-bottom:9px;border:1px solid var(--gb)}
+.pd-main img{width:100%;height:100%;object-fit:cover}
+.pd-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.pd-thumb{aspect-ratio:1;overflow:hidden;cursor:pointer;border:1.5px solid transparent;background:var(--cream-d);transition:var(--tr)}
+.pd-thumb img{width:100%;height:100%;object-fit:cover}
+.pd-thumb:hover,.pd-thumb.active{border-color:var(--gold)}
+.pd-bc{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--inkx);margin-bottom:18px}
+.pd-bc a{color:var(--gold);cursor:pointer}
+.pd-name{font-family:var(--serif);font-size:clamp(1.9rem,3vw,2.7rem);font-weight:500;color:var(--ink);margin-bottom:9px}
+.pd-price{font-size:1.55rem;color:var(--gold);font-family:var(--serif);margin-bottom:20px}
+.pd-desc{font-size:0.88rem;color:var(--inkl);line-height:1.9;margin-bottom:30px}
+.ol{font-size:0.67rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--inkx);margin-bottom:9px;display:block}
+.sz-opts{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:26px}
+.sz-b{width:48px;height:48px;border:1.5px solid rgba(139,104,69,0.2);font-size:0.73rem;
+  font-weight:500;color:var(--inkl);transition:var(--tr);cursor:pointer;border-radius:2px;background:transparent}
+.sz-b:hover,.sz-b.active{border-color:var(--gold);color:var(--gold);background:var(--gl)}
+.col-opts{display:flex;gap:9px;margin-bottom:26px}
+.col-d{width:27px;height:27px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:var(--tr)}
+.col-d.active,.col-d:hover{border-color:var(--gold);transform:scale(1.1)}
+.ac-btn{width:100%;padding:16px;background:var(--ink);color:var(--cream);
+  font-size:0.76rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;
+  border-radius:2px;transition:var(--tr);margin-bottom:11px;border:none;cursor:pointer}
+.ac-btn:hover{background:var(--gold)}
+.pf{margin-top:20px;display:flex;flex-direction:column;gap:8px}
+.pf-i{display:flex;align-items:center;gap:10px;font-size:0.78rem;color:var(--inkl)}
+.pf-i::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.ps{margin-top:40px;padding-top:40px;border-top:1px solid var(--gb)}
+.ps-t{font-family:var(--serif);font-size:1.3rem;font-weight:500;color:var(--ink);margin-bottom:12px}
+.ps-d{font-size:0.83rem;color:var(--inkl);line-height:1.9}
+
+/* CUSTOM ORDERS */
+.cu-hero{padding:156px 5% 76px;background:var(--cream-d);border-bottom:1px solid var(--gb)}
+.sdg{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:3px;margin-top:48px}
+.sdc{padding:40px 34px;background:var(--white);border:1px solid transparent;transition:var(--tr)}
+.sdc:hover{border-color:var(--gb);transform:translateY(-2px)}
+.sdc-ic{font-size:2.3rem;margin-bottom:18px;display:block}
+.sdc-t{font-family:var(--serif);font-size:1.6rem;font-weight:500;color:var(--ink);margin-bottom:13px}
+.sdc-d{font-size:0.82rem;color:var(--inkl);line-height:1.9;margin-bottom:20px}
+.sdc-fs{display:flex;flex-direction:column;gap:7px}
+.sdc-f{display:flex;align-items:center;gap:8px;font-size:0.76rem;color:var(--inkl)}
+.sdc-f::before{content:'✓';color:var(--gold);font-size:0.7rem;font-weight:700}
+
+/* PROCESS */
+.proc{background:var(--ink);padding:90px 5%}
+.proc .lbl{color:var(--goldb)}
+.proc .ttl{color:var(--cream)}
+.proc-steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
+  gap:36px;margin-top:56px;position:relative}
+.proc-steps::before{content:'';position:absolute;top:25px;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(184,152,106,0.28),transparent)}
+.proc-s{text-align:center}
+.proc-n{width:50px;height:50px;border-radius:50%;background:var(--ink);
+  border:1.5px solid var(--goldb);display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:1.15rem;color:var(--goldb);margin:0 auto 16px;position:relative;z-index:1}
+.proc-st{font-family:var(--serif);font-size:1rem;color:var(--cream);margin-bottom:6px}
+.proc-sd{font-size:0.76rem;color:rgba(248,244,238,0.42);line-height:1.7}
+
+/* QUOTE FORM */
+.qf{padding:90px 5%}
+.qg{display:grid;grid-template-columns:1fr 1fr;gap:76px;margin-top:48px}
+.fg{margin-bottom:18px}
+.fl2{display:block;font-size:0.67rem;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--inkx);margin-bottom:6px}
+.fi,.fs,.fta{width:100%;background:var(--white);border:1.5px solid var(--gb);border-radius:2px;
+  padding:11px 14px;color:var(--ink);font-family:var(--sans);font-size:0.86rem;outline:none;transition:var(--tr)}
+.fi:focus,.fs:focus,.fta:focus{border-color:var(--gold);background:#fffdf8}
+.fi::placeholder,.fta::placeholder{color:var(--inkx)}
+.fs option{color:var(--ink)}
+.fta{resize:vertical;min-height:125px}
+.qi-item{display:flex;align-items:flex-start;gap:13px;padding:16px 0;border-bottom:1px solid var(--gb)}
+.qi-ic{color:var(--gold);font-size:1.05rem;margin-top:2px;flex-shrink:0}
+.qi-t{font-size:0.83rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.qi-d{font-size:0.76rem;color:var(--inkl)}
+
+/* ABOUT */
+.ab-hero{padding:156px 5% 76px;display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:center}
+.ab-v{position:relative}
+.ab-img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.ab-fa{position:absolute;top:-16px;left:-16px;width:48%;height:48%;
+  border-top:2px solid var(--gold);border-left:2px solid var(--gold)}
+.ab-fb2{position:absolute;bottom:-16px;right:-16px;width:48%;height:48%;
+  border-bottom:2px solid var(--gold);border-right:2px solid var(--gold)}
+.st-bar{background:var(--ink);padding:60px 5%;display:grid;grid-template-columns:repeat(4,1fr);gap:1px}
+.st-i{padding:30px 22px;text-align:center;border-right:1px solid rgba(255,255,255,0.07)}
+.st-i:last-child{border-right:none}
+.st-n{font-family:var(--serif);font-size:2.8rem;color:var(--goldb);font-weight:300;display:block;line-height:1;margin-bottom:6px}
+.st-l{font-size:0.67rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(248,244,238,0.38)}
+.av-g{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:76px}
+.av{padding:36px 30px;background:var(--white);border:1px solid transparent;transition:var(--tr)}
+.av:hover{border-color:var(--gb)}
+.av-n{font-family:var(--serif);font-size:2.3rem;color:#d4c1a5;font-style:italic;margin-bottom:9px;display:block}
+.av-t{font-family:var(--serif);font-size:1.2rem;color:var(--ink);font-weight:500;margin-bottom:8px}
+.av-d{font-size:0.78rem;color:var(--inkl);line-height:1.8}
+
+/* CONTACT */
+.ct-l{padding:136px 5% 76px;display:grid;grid-template-columns:1fr 1.2fr;gap:76px;align-items:start}
+.ct-il{margin-top:32px;display:flex;flex-direction:column;gap:18px}
+.ct-ir{display:flex;align-items:flex-start;gap:16px;padding-bottom:18px;border-bottom:1px solid var(--gb)}
+.ct-ii{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gb);background:var(--gl);
+  display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:0.95rem;flex-shrink:0}
+.ct-il2{font-size:0.67rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--inkx);margin-bottom:2px}
+.ct-iv{font-size:0.9rem;color:var(--inkm);font-weight:500}
+.sl{display:flex;gap:9px;margin-top:24px}
+.sl-a{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gb);background:var(--gl);
+  display:flex;align-items:center;justify-content:center;font-size:0.73rem;font-weight:600;
+  color:var(--gold);transition:var(--tr)}
+.sl-a:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+.ct-fb{background:var(--white);padding:44px 40px;border:1px solid var(--gb);border-radius:2px}
+
+/* FAQ */
+.fq{padding:20px 26px;background:var(--white);border-bottom:1px solid var(--gb);cursor:pointer;transition:var(--tr)}
+.fq:hover{background:#fffdf8}
+.fq-q{display:flex;justify-content:space-between;align-items:center;gap:14px}
+.fq-q span{font-size:0.9rem;font-weight:500;color:var(--ink)}
+.fq-ic{color:var(--gold);font-size:1.15rem;flex-shrink:0;transition:var(--tr)}
+.fq-a{margin-top:12px;font-size:0.82rem;color:var(--inkl);line-height:1.85;display:none}
+
+/* CART */
+.c-ov{position:fixed;inset:0;background:rgba(26,18,8,0.45);z-index:2000;
+  opacity:0;pointer-events:none;transition:opacity 0.3s ease}
+.c-ov.open{opacity:1;pointer-events:all}
+.c-dr{position:fixed;top:0;right:0;bottom:0;width:390px;max-width:95vw;
+  background:var(--cream);border-left:1.5px solid var(--gb);z-index:2001;
+  transform:translateX(100%);transition:transform 0.38s cubic-bezier(0.4,0,0.2,1);
+  display:flex;flex-direction:column}
+.c-dr.open{transform:translateX(0)}
+.c-hd{padding:24px 26px;border-bottom:1px solid var(--gb);
+  display:flex;align-items:center;justify-content:space-between;background:var(--white)}
+.c-ttl{font-family:var(--serif);font-size:1.35rem;font-weight:500;color:var(--ink)}
+.c-cl{width:33px;height:33px;border-radius:50%;border:1.5px solid var(--gb);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--inkl);transition:var(--tr);cursor:pointer;font-size:1.05rem}
+.c-cl:hover{border-color:var(--gold);color:var(--gold)}
+.c-it{flex:1;overflow-y:auto;padding:18px 26px}
+.ci{display:flex;gap:13px;padding:16px 0;border-bottom:1px solid var(--gb)}
+.ci-img{width:65px;height:80px;object-fit:cover;border:1px solid var(--gb);flex-shrink:0;background:var(--cream-d)}
+.ci-n{font-size:0.86rem;font-weight:500;color:var(--ink);margin-bottom:3px}
+.ci-v{font-size:0.72rem;color:var(--inkx)}
+.ci-p{font-size:0.88rem;color:var(--gold);margin-top:auto;font-weight:600}
+.c-em{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  height:100%;text-align:center;color:var(--inkl)}
+.c-em-ic{font-size:2.3rem;margin-bottom:12px;opacity:0.3}
+.c-em-t{font-family:var(--serif);font-size:1.15rem;font-style:italic;color:var(--inkl)}
+.c-ft{padding:20px 26px;border-top:1.5px solid var(--gb);background:var(--white)}
+.c-tr{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.c-tl{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--inkx)}
+.c-tv{font-family:var(--serif);font-size:1.3rem;color:var(--gold);font-weight:500}
+
+/* MOBILE NAV */
+.mob-nav{position:fixed;top:72px;left:0;right:0;bottom:0;background:var(--cream);z-index:900;
+  display:flex;flex-direction:column;padding:32px 5%;gap:0;
+  transform:translateX(-100%);transition:transform 0.38s cubic-bezier(0.4,0,0.2,1)}
+.mob-nav.open{transform:translateX(0)}
+.mob-nav a{font-family:var(--serif);font-size:1.9rem;font-weight:400;color:var(--inkm);
+  border-bottom:1px solid var(--gb);padding:18px 0;cursor:pointer;transition:var(--tr)}
+.mob-nav a:hover{color:var(--gold);padding-left:7px}
+
+/* FOOTER */
+footer{padding:68px 5% 42px;background:var(--ink)}
+.f-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;margin-bottom:52px}
+.f-bd{font-size:0.78rem;color:rgba(248,244,238,0.35);line-height:1.8;max-width:260px;margin-top:14px}
+.f-ct{font-size:0.67rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--goldb);margin-bottom:16px}
+.f-lks{display:flex;flex-direction:column;gap:8px}
+.f-lks a{font-size:0.78rem;color:rgba(248,244,238,0.37);transition:var(--tr);cursor:pointer}
+.f-lks a:hover{color:rgba(248,244,238,0.8)}
+.f-bt{padding-top:26px;border-top:1px solid rgba(255,255,255,0.07);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.f-cp{font-size:0.7rem;color:rgba(248,244,238,0.2);letter-spacing:0.05em}
+.f-logo{font-family:var(--serif);font-size:1.15rem;color:rgba(248,244,238,0.55)}
+.f-logo span{color:var(--goldb)}
+
+/* TOAST */
+.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:var(--ink);color:var(--cream);padding:14px 32px;border-radius:2px;
+  border-left:3px solid var(--gold);font-size:0.86rem;letter-spacing:0.07em;font-weight:500;
+  z-index:9999;transition:transform 0.36s cubic-bezier(0.4,0,0.2,1);
+  white-space:normal;text-align:center;max-width:calc(100vw - 40px);width:max-content}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:1060px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-l{padding:120px 5% 0;border-right:none;border-bottom:1px solid var(--gb)}
+  .hero-r{min-height:55vw}
+  .loc,.ab-hero,.ct-l,.pd-l{grid-template-columns:1fr;gap:44px}
+  .f-grid{grid-template-columns:1fr 1fr;gap:34px}
+  .st-bar{grid-template-columns:repeat(2,1fr)}
+  .av-g{grid-template-columns:1fr}
+  .qg{grid-template-columns:1fr}
+  .pd-imgs{position:static}
+}
+@media(max-width:768px){
+  section{padding:60px 5%}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero-h{font-size:clamp(2.5rem,10vw,4rem)}
+  .f-grid{grid-template-columns:1fr}
+  .st-bar{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .hero-actions{flex-direction:column}
+  .btn-p,.btn-g,.btn-o{width:100%;justify-content:center}
+}
+/* REVEAL — scroll-triggered fade-in
+   Wire up once in JS:
+   new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');o.unobserve(e.target)}}),{threshold:0.12})
+     .observe on every .reveal element */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.62s ease,transform 0.62s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.reveal,.reveal.visible{opacity:1;transform:none;transition:none}}
+
+/* 768px — tablet gaps (product grid, services grid, shop controls) */
+@media(max-width:768px){
+  .pg,.sh-grid{grid-template-columns:repeat(2,1fr)}   /* explicit 2-col; minmax(250px) is ambiguous at ~700px */
+  .sg{grid-template-columns:repeat(2,1fr)}            /* 3-col at tablet is too cramped */
+  .feat-hd{flex-direction:column;align-items:flex-start}
+  .sh-ctrl{padding:14px 5%}
+}
+
+/* 480px — mobile gaps */
+@media(max-width:480px){
+  .pg,.sh-grid{grid-template-columns:1fr}
+  .sg{grid-template-columns:1fr}
+  .st-bar{grid-template-columns:1fr}                  /* 4 stats → single column stack */
+  .eml-form{flex-direction:column}
+  .eml-sb{padding:12px;text-align:center}
+  .ct-fb{padding:28px 20px}
+  .loc-bge{position:static;margin-top:14px}           /* negative offset clips on small screens */
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-logo" onclick="showPage('home')">
+    <img src="Images/Greater Than Logo.png"
+         alt="Greater Than Apparel"
+         onload="this.style.display='block'"
+         onerror="this.style.display='none';document.querySelector('.nav-logo-fb').style.display='block'"/>
+    <div class="nav-logo-fb">Greater <span>&gt;</span> Than</div>
+  </div>
+  <div class="nav-links">
+    <a onclick="showPage('home')">Home</a>
+    <div class="nav-dd">
+      <a onclick="showShopFiltered('all')" class="nav-dd-trigger">Shop ▾</a>
+      <div class="nav-dd-menu">
+        <a onclick="showShopFiltered('gt')">Greater Than Collection</a>
+        <a onclick="showShopFiltered('mum')">mum. Collection</a>
+        <a onclick="showShopFiltered('loc')">LocNation Collection — Coming Soon</a>
+      </div>
+    </div>
+    <a onclick="showPage('custom')">Custom Apparel</a>
+    <a onclick="showPage('about')">About</a>
+    <a onclick="showPage('contact')">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <button class="nav-cart" onclick="toggleCart()">
+      🛒 Cart <span class="cart-count" id="cart-count">0</span>
+    </button>
+    <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mob-nav" id="mob-nav">
+  <a onclick="showPage('home');toggleMobileNav()">Home</a>
+  <a onclick="showPage('shop');toggleMobileNav()">Shop</a>
+  <a onclick="showPage('custom');toggleMobileNav()">Custom Apparel</a>
+  <a onclick="showPage('about');toggleMobileNav()">About</a>
+  <a onclick="showPage('contact');toggleMobileNav()">Contact</a>
+</div>
+
+<!-- CART -->
+<div class="c-ov" id="c-ov" onclick="toggleCart()"></div>
+<div class="c-dr" id="c-dr">
+  <div class="c-hd">
+    <span class="c-ttl">Your Bag</span>
+    <button class="c-cl" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="c-it" id="c-items">
+    <div class="c-em">
+      <div class="c-em-ic">🛍️</div>
+      <div class="c-em-t">Your bag is empty</div>
+      <p style="font-size:0.76rem;color:var(--inkx);margin-top:7px">Add something you'll love</p>
+    </div>
+  </div>
+  <div class="c-ft">
+    <div class="c-tr">
+      <span class="c-tl">Total</span>
+      <span class="c-tv" id="c-total">£0.00</span>
+    </div>
+    <button class="btn-p" style="width:100%;justify-content:center" onclick="checkout()">Checkout →</button>
+    <button class="btn-gh" style="width:100%;justify-content:center;margin-top:9px;color:var(--inkl)" onclick="showPage('shop');toggleCart()">Continue Shopping</button>
+  </div>
+</div>
+
+<!-- ====================================================
+     HOME
+==================================================== -->
+<div class="page active" id="page-home">
+
+  <div class="hero">
+    <div class="hero-l">
+      <div class="hero-ey">
+        <div class="hero-ey-d"></div>
+        <span>UK-Based Custom Apparel</span>
+      </div>
+      <h1 class="hero-h">
+        <strong>Clothing</strong><br>
+        Made to<br>
+        <span class="acc">Mean</span> Something.
+      </h1>
+      <p class="hero-sub">Premium custom and ready-made apparel for individuals, businesses, and communities across the UK. Embroidery, DTF printing, and branded merchandise — done properly.</p>
+      <div class="hero-actions">
+        <button class="btn-g" onclick="showPage('shop')">Shop Now →</button>
+        <button class="btn-o" onclick="showPage('custom')">Get a Quote</button>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-ti"><span class="hero-ti-ic">📦</span> UK Shipping</div>
+        <div class="hero-ti"><span class="hero-ti-ic">✦</span> Premium Quality</div>
+        <div class="hero-ti"><span class="hero-ti-ic">🔄</span> 30-Day Returns</div>
+      </div>
+    </div>
+    <div class="hero-r">
+      <div class="hero-slides">
+        <div class="hero-slide active">
+          <img src="https://static.wixstatic.com/media/3530cc_e1ac490c5b5b44ffae6f329aff2de8cf~mv2.jpeg/v1/fill/w_980,h_1470,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/3530cc_e1ac490c5b5b44ffae6f329aff2de8cf~mv2.jpeg" alt="grand mum. — mum. Collection"/>
+        </div>
+        <div class="hero-slide">
+          <img src="https://static.wixstatic.com/media/3530cc_37d7bb02a1304e26994cfcfbbff070f4~mv2.jpg/v1/fill/w_980,h_1470,al_c,q_85,enc_avif,quality_auto/3530cc_37d7bb02a1304e26994cfcfbbff070f4~mv2.jpg" alt="Jesus [3D] Hoodie — GT> Collection"/>
+        </div>
+        <div class="hero-slide">
+          <img src="https://static.wixstatic.com/media/3530cc_8e71b639b39d4168b579276e00644810~mv2.png/v1/fill/w_980,h_1470,al_c,q_90,enc_avif,quality_auto/3530cc_8e71b639b39d4168b579276e00644810~mv2.png" alt="Say Less (Back) — GT> Collection"/>
+        </div>
+      </div>
+      <div class="hero-cap"><span id="hero-cap-txt">mum. Collection — From £24.99</span></div>
+    </div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="mq">
+    <div class="mq-t">
+      <span>Custom Embroidery &nbsp;·&nbsp; <b>No Minimums on DTF</b> &nbsp;·&nbsp; UK-Based Team &nbsp;·&nbsp; Premium Garments &nbsp;·&nbsp; Fast Turnaround &nbsp;·&nbsp; Businesses &nbsp;·&nbsp; Events &nbsp;·&nbsp; Community Groups &nbsp;·&nbsp; <b>Free Shipping Over £60</b> &nbsp;·&nbsp; Custom Embroidery &nbsp;·&nbsp; <b>No Minimums on DTF</b> &nbsp;·&nbsp; UK-Based Team &nbsp;·&nbsp; Premium Garments &nbsp;·&nbsp; Fast Turnaround &nbsp;·&nbsp; Businesses &nbsp;·&nbsp; Events &nbsp;·&nbsp; Community Groups &nbsp;·&nbsp; <b>Free Shipping Over £60</b> &nbsp;·&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- FEATURED -->
+  <section style="background:var(--cream-d)">
+    <div class="feat-hd">
+      <div>
+        <span class="lbl">Now Available</span>
+        <h2 class="ttl">Shop the <em>Collection</em></h2>
+      </div>
+      <button class="btn-gh" onclick="showPage('shop')">View All <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+    <div class="pg">
+      <div class="pc" data-collection="mum" onclick="openProduct('grand mum.','Mother\'s Day Special','£24.99','https://static.wixstatic.com/media/3530cc_e1ac490c5b5b44ffae6f329aff2de8cf~mv2.jpeg/v1/fill/w_980,h_1470,al_c,q_85,enc_avif,quality_auto/3530cc_e1ac490c5b5b44ffae6f329aff2de8cf~mv2.jpeg')">
+        <div class="pc-img"><img src="https://static.wixstatic.com/media/3530cc_e1ac490c5b5b44ffae6f329aff2de8cf~mv2.jpeg/v1/fill/w_600,h_900,al_c,q_85,enc_avif,quality_auto/3530cc_e1ac490c5b5b44ffae6f329aff2de8cf~mv2.jpeg" alt="grand mum"/><div class="pc-ov"></div><button class="btn-g pc-qa" onclick="event.stopPropagation();addToCart('grand mum.','£24.99')">Add to Bag</button></div>
+        <div class="pc-info"><div class="pc-tag">Mother's Day Special</div><div class="pc-name">grand mum.</div><div class="pc-price">£24.99</div></div>
+        <div class="pc-badge">Special Offer</div>
+      </div>
+      <div class="pc" data-collection="mum" onclick="openProduct('that mum.','Mother\'s Day Special','£24.99','https://static.wixstatic.com/media/3530cc_a043d4dd27324bea849a6bac4fdea44c~mv2.png/v1/fill/w_980,h_1470,al_c,q_90,enc_avif,quality_auto/3530cc_a043d4dd27324bea849a6bac4fdea44c~mv2.png')">
+        <div class="pc-img"><img src="https://static.wixstatic.com/media/3530cc_a043d4dd27324bea849a6bac4fdea44c~mv2.png/v1/fill/w_600,h_900,al_c,q_90,enc_avif,quality_auto/3530cc_a043d4dd27324bea849a6bac4fdea44c~mv2.png" alt="that mum"/><div class="pc-ov"></div><button class="btn-g pc-qa" onclick="event.stopPropagation();addToCart('that mum.','£24.99')">Add to Bag</button></div>
+        <div class="pc-info"><div class="pc-tag">Mother's Day Special</div><div class="pc-name">that mum.</div><div class="pc-price">£24.99</div></div>
+        <div class="pc-badge">Special Offer</div>
+      </div>
+      <div class="pc" data-collection="mum" onclick="openProduct('pro mum.','Mother\'s Day Special','£24.99','https://static.wixstatic.com/media/3530cc_bc21cee82ed74c4396ba6bd803623c53~mv2.jpeg/v1/fill/w_980,h_980,al_c,q_85,enc_avif,quality_auto/3530cc_bc21cee82ed74c4396ba6bd803623c53~mv2.jpeg')">
+        <div class="pc-img"><img src="https://static.wixstatic.com/media/3530cc_bc21cee82ed74c4396ba6bd803623c53~mv2.jpeg/v1/fill/w_600,h_600,al_c,q_85,enc_avif,quality_auto/3530cc_bc21cee82ed74c4396ba6bd803623c53~mv2.jpeg" alt="pro mum"/><div class="pc-ov"></div><button class="btn-g pc-qa" onclick="event.stopPropagation();addToCart('pro mum.','£24.99')">Add to Bag</button></div>
+        <div class="pc-info"><div class="pc-tag">Mother's Day Special</div><div class="pc-name">pro mum.</div><div class="pc-price">£24.99</div></div>
+        <div class="pc-badge">Special Offer</div>
+      </div>
+      <div class="pc" data-collection="mum" onclick="openProduct('boy mum.','Mother\'s Day Special','£24.99','https://static.wixstatic.com/media/3530cc_82c4f2a490d744f1a65b1d017ff79d83~mv2.jpeg/v1/fill/w_980,h_1470,al_c,q_85,enc_avif,quality_auto/3530cc_82c4f2a490d744f1a65b1d017ff79d83~mv2.jpeg')">
+        <div class="pc-img"><img src="https://static.wixstatic.com/media/3530cc_82c4f2a490d744f1a65b1d017ff79d83~mv2.jpeg/v1/fill/w_600,h_900,al_c,q_85,enc_avif,quality_auto/3530cc_82c4f2a490d744f1a65b1d017ff79d83~mv2.jpeg" alt="boy mum"/><div class="pc-ov"></div><button class="btn-g pc-qa" onclick="event.stopPropagation();addToCart('boy mum.','£24.99')">Add to Bag</button></div>
+        <div class="pc-info"><div class="pc-tag">Mother's Day Special</div><div class="pc-name">boy mum.</div><div class="pc-price">£24.99</div></div>
+        <div class="pc-badge">Special Offer</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:44px">
+      <button class="btn-p" onclick="showPage('shop')">View Full Collection →</button>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <div class="svc">
+    <div style="max-width:460px">
+      <span class="lbl">What We Do</span>
+      <h2 class="ttl" style="color:var(--cream)">Custom Apparel.<br><em style="color:var(--goldb)">Done Right.</em></h2>
+      <p class="bod">From one-off pieces to bulk business orders — we handle everything in-house with quality you can see and feel.</p>
+    </div>
+    <div class="sg">
+      <div class="sc" onclick="showPage('custom')"><span class="sc-ic">🪡</span><div class="sc-t">Embroidery</div><p class="sc-d">Professional stitched logos and designs for polos, hats, jackets, and uniforms.</p><div class="sc-lk">Learn more →</div></div>
+      <div class="sc" onclick="showPage('custom')"><span class="sc-ic">🖨️</span><div class="sc-t">DTF Printing</div><p class="sc-d">Full-colour, vibrant prints with no minimum order. Perfect for events and custom drops.</p><div class="sc-lk">Learn more →</div></div>
+      <div class="sc" onclick="showPage('custom')"><span class="sc-ic">📦</span><div class="sc-t">Branded Merch</div><p class="sc-d">Bulk promotional merchandise for businesses, community groups, schools, and events.</p><div class="sc-lk">Learn more →</div></div>
+      <div class="sc" onclick="showPage('shop')"><span class="sc-ic">✦</span><div class="sc-t">Ready-Made</div><p class="sc-d">Our in-house collection — premium, purposeful apparel ready to wear today.</p><div class="sc-lk">Shop now →</div></div>
+    </div>
+  </div>
+
+  <!-- LOCAL -->
+  <section>
+    <div class="loc">
+      <div class="loc-v">
+        <img class="loc-img"
+             src="https://static.wixstatic.com/media/3530cc_a3f8e41450cf4de1994916f6c18a81e7~mv2.jpg/v1/fill/w_980,h_654,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/3530cc_a3f8e41450cf4de1994916f6c18a81e7~mv2.jpg"
+             alt="Greater Than Apparel"
+             onerror="this.style.minHeight='400px';this.style.background='var(--cream-d)'"/>
+        <div class="loc-bge"><span class="loc-bge-n">UK</span><span class="loc-bge-t">Based &amp; Proud</span></div>
+      </div>
+      <div>
+        <span class="lbl">Why Choose Us</span>
+        <h2 class="ttl">Serving Your<br><em>Community</em></h2>
+        <div class="dvd"></div>
+        <p class="bod">We're not a faceless warehouse — we're a UK-based team that takes pride in every order. Whether you need a single custom piece or 500 branded units, every project gets the same care and attention.</p>
+        <div class="loc-pts">
+          <div class="loc-pt"><span class="loc-pt-ic">📍</span><div><div class="loc-pt-t">UK-Based Team</div><div class="loc-pt-d">Local — which means faster comms, UK shipping times, and people who understand your market.</div></div></div>
+          <div class="loc-pt"><span class="loc-pt-ic">⚡</span><div><div class="loc-pt-t">Fast Turnaround</div><div class="loc-pt-d">DTF in 3–5 days. Embroidery in 7–10. We respect your deadlines.</div></div></div>
+          <div class="loc-pt"><span class="loc-pt-ic">🏆</span><div><div class="loc-pt-t">Quality Guaranteed</div><div class="loc-pt-d">Every order is quality-checked. If something's not right, we make it right — no hassle.</div></div></div>
+          <div class="loc-pt"><span class="loc-pt-ic">🤝</span><div><div class="loc-pt-t">For Everyone</div><div class="loc-pt-d">Businesses, clubs, schools, community groups, events, and individuals — we serve all.</div></div></div>
+        </div>
+        <div style="margin-top:32px"><button class="btn-p" onclick="showPage('contact')">Get in Touch</button></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gr"></div>
+
+  <!-- TESTIMONIALS -->
+  <section style="background:var(--cream-d)">
+    <div style="max-width:440px">
+      <span class="lbl">What People Say</span>
+      <h2 class="ttl">Trusted by <em>Real People</em></h2>
+    </div>
+    <div class="tg">
+      <div class="tc"><div class="tc-s">★★★★★</div><p class="tc-t">"Ordered custom embroidered polos for our whole team. Brilliant quality and faster than expected. Highly recommend."</p><div class="tc-a"><div class="tc-av">S</div><div><div class="tc-n">Sarah M.</div><div class="tc-r">Small Business Owner, London</div></div></div></div>
+      <div class="tc"><div class="tc-s">★★★★★</div><p class="tc-t">"Got the 'that mum' tee as a gift — honestly the best quality tee I own. Print is crisp and still perfect after loads of washes."</p><div class="tc-a"><div class="tc-av">L</div><div><div class="tc-n">Lauren K.</div><div class="tc-r">Customer, Birmingham</div></div></div></div>
+      <div class="tc"><div class="tc-s">★★★★★</div><p class="tc-t">"Used Greater Than for three events now. Branded hoodies always go down a treat and the bulk pricing is genuinely competitive."</p><div class="tc-a"><div class="tc-av">D</div><div><div class="tc-n">David O.</div><div class="tc-r">Events Organiser, Manchester</div></div></div></div>
+    </div>
+  </section>
+
+  <!-- EMAIL -->
+  <div class="eml">
+    <span class="lbl">Stay in the Loop</span>
+    <h2 class="ttl" style="max-width:400px;margin:0 auto">New Drops &amp;<br><em>Exclusive Offers</em></h2>
+    <p class="bod" style="margin:12px auto 0;text-align:center">Be first to know about new collections, limited runs, and local events. No spam.</p>
+    <div class="eml-form">
+      <input class="eml-in" type="email" placeholder="Your email address" id="eml-in"/>
+      <button class="eml-sb" onclick="handleEmail()">Subscribe</button>
+    </div>
+    <p style="font-size:0.68rem;color:var(--inkx);margin-top:9px">Join 500+ subscribers. Unsubscribe any time.</p>
+  </div>
+
+  <footer>
+    <div class="f-grid">
+      <div>
+        <div class="f-logo">Greater <span>&gt;</span> Than Apparel</div>
+        <p class="f-bd">Premium custom and ready-made apparel for individuals, businesses, and communities across the UK.</p>
+      </div>
+      <div><div class="f-ct">Shop</div><div class="f-lks"><a onclick="showPage('shop')">All Products</a><a onclick="showPage('shop')">Special Offers</a><a onclick="showPage('shop')">New Arrivals</a><a onclick="showPage('shop')">Gift Ideas</a></div></div>
+      <div><div class="f-ct">Services</div><div class="f-lks"><a onclick="showPage('custom')">Embroidery</a><a onclick="showPage('custom')">DTF Printing</a><a onclick="showPage('custom')">Branded Merch</a><a onclick="showPage('custom')">Get a Quote</a></div></div>
+      <div><div class="f-ct">Company</div><div class="f-lks"><a onclick="showPage('about')">About Us</a><a onclick="showPage('contact')">Contact</a><a href="#">Shipping</a><a href="#">Returns</a></div></div>
+    </div>
+    <div class="f-bt">
+      <span class="f-cp">© 2024 Greater Than Apparel. All rights reserved. UK Registered.</span>
+      <div class="sl">
+        <a class="sl-a" href="https://www.instagram.com/greater_thanapparel?igsh=MWZmb3J1ZTRkY3Nwcg==" target="_blank" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a class="sl-a" href="https://www.tiktok.com/@greater_thanapparel" target="_blank" title="TikTok"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.67a8.18 8.18 0 0 0 4.78 1.52V6.72a4.85 4.85 0 0 1-1.01-.03z"/></svg></a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ====================================================
+     SHOP
+==================================================== -->
+<div class="page" id="page-shop">
+  <div class="sh-hero">
+    <span class="lbl">The Collection</span>
+    <h1 class="ttl">All Products</h1>
+    <p class="bod">Designed in-house. Made to last. Shipped across the UK.</p>
+  </div>
+  <div class="sh-ctrl">
+    <span class="fl">Filter:</span>
+    <button class="fb active" onclick="filterProducts(this)">All</button>
+    <button class="fb" onclick="filterProducts(this)">mum. Collection</button>
+    <button class="fb" onclick="filterProducts(this)">GT&gt; Collection</button>
+    <button class="fb" onclick="showShopFiltered('loc')">LocNation Collection</button>
+    <div class="fdv"></div>
+    <span class="fl">Size:</span>
+    <button class="fb" onclick="filterProducts(this)">XS</button>
+    <button class="fb" onclick="filterProducts(this)">S</button>
+    <button class="fb" onclick="filterProducts(this)">M</button>
+    <button class="fb" onclick="filterProducts(this)">L</button>
+    <button class="fb" onclick="filterProducts(this)">XL</button>
+    <button class="fb" onclick="filterProducts(this)">2XL</button>
+  </div>
+  <div class="sh-grid">
+    <div class="pc" data-collection="mum" onclick="openProduct('grand mum.','Mother\'s Day Special','£24.99','https://static.wixstatic.com/media/3530cc_e1ac490c5b5b44ffae6f329aff2de8cf~mv2.jpeg/v1/fill/w_980,h_1470,al_c,q_85,enc_avif/3530cc_e1ac490c5b5b44ffae6f329aff2de8cf~mv2.jpeg')">
+      <div class="pc-img"><img src="https://static.wixstatic.com/media/3530cc_e1ac490c5b5b44ffae6f329aff2de8cf~mv2.jpeg/v1/fill/w_600,h_900,al_c,q_85,enc_avif/3530cc_e1ac490c5b5b44ffae6f329aff2de8cf~mv2.jpeg" alt="grand mum"/><div class="pc-ov"></div><button class="btn-g pc-qa" onclick="event.stopPropagation();addToCart('grand mum.','£24.99')">Add to Bag</button></div>
+      <div class="pc-info"><div class="pc-tag">Mother's Day Special</div><div class="pc-name">grand mum.</div><div class="pc-price">£24.99</div></div><div class="pc-badge">Special Offer</div>
+    </div>
+    <div class="pc" data-collection="mum" onclick="openProduct('that mum.','Mother\'s Day Special','£24.99','https://static.wixstatic.com/media/3530cc_a043d4dd27324bea849a6bac4fdea44c~mv2.png/v1/fill/w_980,h_1470,al_c,q_90,enc_avif/3530cc_a043d4dd27324bea849a6bac4fdea44c~mv2.png')">
+      <div class="pc-img"><img src="https://static.wixstatic.com/media/3530cc_a043d4dd27324bea849a6bac4fdea44c~mv2.png/v1/fill/w_600,h_900,al_c,q_90,enc_avif/3530cc_a043d4dd27324bea849a6bac4fdea44c~mv2.png" alt="that mum"/><div class="pc-ov"></div><button class="btn-g pc-qa" onclick="event.stopPropagation();addToCart('that mum.','£24.99')">Add to Bag</button></div>
+      <div class="pc-info"><div class="pc-tag">Mother's Day Special</div><div class="pc-name">that mum.</div><div class="pc-price">£24.99</div></div><div class="pc-badge">Special Offer</div>
+    </div>
+    <div class="pc" data-collection="mum" onclick="openProduct('pro mum.','Mother\'s Day Special','£24.99','https://static.wixstatic.com/media/3530cc_bc21cee82ed74c4396ba6bd803623c53~mv2.jpeg/v1/fill/w_980,h_980,al_c,q_85,enc_avif/3530cc_bc21cee82ed74c4396ba6bd803623c53~mv2.jpeg')">
+      <div class="pc-img"><img src="https://static.wixstatic.com/media/3530cc_bc21cee82ed74c4396ba6bd803623c53~mv2.jpeg/v1/fill/w_600,h_600,al_c,q_85,enc_avif/3530cc_bc21cee82ed74c4396ba6bd803623c53~mv2.jpeg" alt="pro mum"/><div class="pc-ov"></div><button class="btn-g pc-qa" onclick="event.stopPropagation();addToCart('pro mum.','£24.99')">Add to Bag</button></div>
+      <div class="pc-info"><div class="pc-tag">Mother's Day Special</div><div class="pc-name">pro mum.</div><div class="pc-price">£24.99</div></div><div class="pc-badge">Special Offer</div>
+    </div>
+    <div class="pc" data-collection="mum" onclick="openProduct('boy mum.','Mother\'s Day Special','£24.99','https://static.wixstatic.com/media/3530cc_82c4f2a490d744f1a65b1d017ff79d83~mv2.jpeg/v1/fill/w_980,h_1470,al_c,q_85,enc_avif/3530cc_82c4f2a490d744f1a65b1d017ff79d83~mv2.jpeg')">
+      <div class="pc-img"><img src="https://static.wixstatic.com/media/3530cc_82c4f2a490d744f1a65b1d017ff79d83~mv2.jpeg/v1/fill/w_600,h_900,al_c,q_85,enc_avif/3530cc_82c4f2a490d744f1a65b1d017ff79d83~mv2.jpeg" alt="boy mum"/><div class="pc-ov"></div><button class="btn-g pc-qa" onclick="event.stopPropagation();addToCart('boy mum.','£24.99')">Add to Bag</button></div>
+      <div class="pc-info"><div class="pc-tag">Mother's Day Special</div><div class="pc-name">boy mum.</div><div class="pc-price">£24.99</div></div><div class="pc-badge">Special Offer</div>
+    </div>
+    <div class="pc" data-collection="mum" onclick="openProduct('girl mum.','Mother\'s Day Special','£24.99','https://static.wixstatic.com/media/3530cc_805bf26ed98d45c6ac9c5e5f7f9a8653~mv2.jpeg/v1/fill/w_980,h_1470,al_c,q_85,enc_avif/3530cc_805bf26ed98d45c6ac9c5e5f7f9a8653~mv2.jpeg')">
+      <div class="pc-img"><img src="https://static.wixstatic.com/media/3530cc_805bf26ed98d45c6ac9c5e5f7f9a8653~mv2.jpeg/v1/fill/w_600,h_900,al_c,q_85,enc_avif/3530cc_805bf26ed98d45c6ac9c5e5f7f9a8653~mv2.jpeg" alt="girl mum"/><div class="pc-ov"></div><button class="btn-g pc-qa" onclick="event.stopPropagation();addToCart('girl mum.','£24.99')">Add to Bag</button></div>
+      <div class="pc-info"><div class="pc-tag">Mother's Day Special</div><div class="pc-name">girl mum.</div><div class="pc-price">£24.99</div></div><div class="pc-badge">Special Offer</div>
+    </div>
+    <div class="pc" data-collection="gt" onclick="openProduct('Redeemed T-Shirt','GT&gt; Collection','£24.99','https://static.wixstatic.com/media/3530cc_8dc639470c80479290eb26a6855bfde0~mv2.png/v1/fill/w_980,h_1470,al_c,q_90,enc_avif,quality_auto/3530cc_8dc639470c80479290eb26a6855bfde0~mv2.png')">
+      <div class="pc-img"><img src="https://static.wixstatic.com/media/3530cc_8dc639470c80479290eb26a6855bfde0~mv2.png/v1/fill/w_600,h_900,al_c,q_90,enc_avif,quality_auto/3530cc_8dc639470c80479290eb26a6855bfde0~mv2.png" alt="Redeemed T-Shirt"/><div class="pc-ov"></div><button class="btn-g pc-qa" onclick="event.stopPropagation();addToCart('Redeemed T-Shirt','£24.99')">Add to Bag</button></div>
+      <div class="pc-info"><div class="pc-tag">GT&gt; Collection</div><div class="pc-name">Redeemed T-Shirt</div><div class="pc-price">£24.99</div></div>
+    </div>
+    <div class="pc" data-collection="gt" onclick="openProduct('Jesus [3D] Hoodie','GT&gt; Collection','£50.00','https://static.wixstatic.com/media/3530cc_37d7bb02a1304e26994cfcfbbff070f4~mv2.jpg/v1/fill/w_980,h_1470,al_c,q_85,enc_avif,quality_auto/3530cc_37d7bb02a1304e26994cfcfbbff070f4~mv2.jpg')">
+      <div class="pc-img"><img src="https://static.wixstatic.com/media/3530cc_37d7bb02a1304e26994cfcfbbff070f4~mv2.jpg/v1/fill/w_600,h_900,al_c,q_85,enc_avif,quality_auto/3530cc_37d7bb02a1304e26994cfcfbbff070f4~mv2.jpg" alt="Jesus [3D] Hoodie"/><div class="pc-ov"></div><button class="btn-g pc-qa" onclick="event.stopPropagation();addToCart('Jesus [3D] Hoodie','£50.00')">Add to Bag</button></div>
+      <div class="pc-info"><div class="pc-tag">GT&gt; Collection</div><div class="pc-name">Jesus [3D] Hoodie</div><div class="pc-price">£50.00</div></div>
+      <div class="pc-badge">Hot Seller</div>
+    </div>
+    <div class="pc" data-collection="gt" onclick="openProduct('Say Less (Front)','GT&gt; Collection','£20.99','https://static.wixstatic.com/media/3530cc_b3c6c7e9193d4695a152c1b6f5040ac7~mv2.png/v1/fill/w_980,h_1470,al_c,q_90,enc_avif,quality_auto/3530cc_b3c6c7e9193d4695a152c1b6f5040ac7~mv2.png')">
+      <div class="pc-img"><img src="https://static.wixstatic.com/media/3530cc_b3c6c7e9193d4695a152c1b6f5040ac7~mv2.png/v1/fill/w_600,h_900,al_c,q_90,enc_avif,quality_auto/3530cc_b3c6c7e9193d4695a152c1b6f5040ac7~mv2.png" alt="Say Less (Front)"/><div class="pc-ov"></div><button class="btn-g pc-qa" onclick="event.stopPropagation();addToCart('Say Less (Front)','£20.99')">Add to Bag</button></div>
+      <div class="pc-info"><div class="pc-tag">GT&gt; Collection</div><div class="pc-name">Say Less (Front)</div><div class="pc-price">£20.99</div></div>
+      <div class="pc-badge">Hot Seller</div>
+    </div>
+    <div class="pc" data-collection="gt" onclick="openProduct('Say Less (Back)','GT&gt; Collection','£20.99','https://static.wixstatic.com/media/3530cc_8e71b639b39d4168b579276e00644810~mv2.png/v1/fill/w_980,h_1470,al_c,q_90,enc_avif,quality_auto/3530cc_8e71b639b39d4168b579276e00644810~mv2.png')">
+      <div class="pc-img"><img src="https://static.wixstatic.com/media/3530cc_8e71b639b39d4168b579276e00644810~mv2.png/v1/fill/w_600,h_900,al_c,q_90,enc_avif,quality_auto/3530cc_8e71b639b39d4168b579276e00644810~mv2.png" alt="Say Less (Back)"/><div class="pc-ov"></div><button class="btn-g pc-qa" onclick="event.stopPropagation();addToCart('Say Less (Back)','£20.99')">Add to Bag</button></div>
+      <div class="pc-info"><div class="pc-tag">GT&gt; Collection</div><div class="pc-name">Say Less (Back)</div><div class="pc-price">£20.99</div></div>
+      <div class="pc-badge">Hot Seller</div>
+    </div>
+    <div class="pc" onclick="showPage('custom')" style="display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:360px;border:2px dashed var(--gb);background:var(--cream);cursor:pointer">
+      <span style="font-size:2rem;margin-bottom:14px;opacity:0.35">+</span>
+      <div class="pc-tag" style="text-align:center">Want Something Custom?</div>
+      <div style="font-family:var(--serif);font-size:1.15rem;color:var(--inkm);text-align:center;padding:0 22px;margin-top:7px">Design your own piece</div>
+      <div style="margin-top:18px"><button class="btn-o" onclick="event.stopPropagation();showPage('custom')">Get a Quote</button></div>
+    </div>
+  </div>
+  <footer><div class="f-bt"><span class="f-cp">© 2024 Greater Than Apparel</span><button class="btn-gh" style="color:var(--inkl)" onclick="showPage('home')">← Home</button></div></footer>
+</div>
+
+<!-- ====================================================
+     PRODUCT DETAIL
+==================================================== -->
+<div class="page" id="page-product">
+  <div class="pd-l">
+    <div class="pd-imgs">
+      <div class="pd-main"><img id="pd-main-img" src="" alt=""/></div>
+      <div class="pd-thumbs">
+        <div class="pd-thumb active"><img id="pd-t0" src="" alt=""/></div>
+        <div class="pd-thumb"><img id="pd-t1" src="" alt=""/></div>
+        <div class="pd-thumb"><img id="pd-t2" src="" alt=""/></div>
+        <div class="pd-thumb"><img id="pd-t3" src="" alt=""/></div>
+      </div>
+    </div>
+    <div>
+      <div class="pd-bc"><a onclick="showPage('shop')">Shop</a> / <span id="pd-col">Special Offers</span></div>
+      <h1 class="pd-name" id="pd-name">grand mum.</h1>
+      <div class="pd-price" id="pd-price">£24.99</div>
+      <p class="pd-desc">Premium quality tee crafted from 100% ring-spun cotton. Soft, durable, and designed to hold its shape wash after wash. A thoughtful and stylish gift for someone special.</p>
+      <div><span class="ol">Select Size</span>
+        <div class="sz-opts">
+          <button class="sz-b" onclick="selSize(this)">XS</button>
+          <button class="sz-b active" onclick="selSize(this)">S</button>
+          <button class="sz-b" onclick="selSize(this)">M</button>
+          <button class="sz-b" onclick="selSize(this)">L</button>
+          <button class="sz-b" onclick="selSize(this)">XL</button>
+          <button class="sz-b" onclick="selSize(this)">2XL</button>
+        </div>
+      </div>
+      <div><span class="ol">Colour</span>
+        <div class="col-opts">
+          <div class="col-d active" style="background:#1a1208;border:2px solid var(--gold)" onclick="selCol(this)" title="Black"></div>
+          <div class="col-d" style="background:#f8f4ee;border:1.5px solid var(--gb)" onclick="selCol(this)" title="Natural"></div>
+          <div class="col-d" style="background:#8b6845" onclick="selCol(this)" title="Tan"></div>
+          <div class="col-d" style="background:#4a5568" onclick="selCol(this)" title="Slate"></div>
+        </div>
+      </div>
+      <button class="ac-btn" id="pd-add">Add to Bag</button>
+      <button class="btn-o" style="width:100%;justify-content:center">♡ Save to Wishlist</button>
+      <div class="pf">
+        <div class="pf-i">100% Premium Ring-Spun Cotton</div>
+        <div class="pf-i">Preshrunk — true to size</div>
+        <div class="pf-i">UK shipping 2–4 working days</div>
+        <div class="pf-i">Free shipping over £60</div>
+        <div class="pf-i">30-day returns &amp; exchanges</div>
+      </div>
+      <div class="ps">
+        <div class="ps-t">About This Design</div>
+        <p class="ps-d">Every piece in our collection is designed in-house with care. Made to celebrate the people who matter — a gift that says more than words ever could.</p>
+      </div>
+    </div>
+  </div>
+  <footer><div class="f-bt"><span class="f-cp">© 2024 Greater Than Apparel</span><button class="btn-gh" style="color:var(--inkl)" onclick="showPage('shop')">← Back to Shop</button></div></footer>
+</div>
+
+<!-- ====================================================
+     CUSTOM ORDERS
+==================================================== -->
+<div class="page" id="page-custom">
+  <div class="cu-hero">
+    <span class="lbl">Custom Apparel</span>
+    <h1 class="ttl">Your Vision.<br><em>Our Craft.</em></h1>
+    <p class="bod">From a single custom piece to bulk business orders — we bring your ideas to life with precision and quality. UK-based, serving the UK.</p>
+    <div style="margin-top:30px;display:flex;gap:12px;flex-wrap:wrap">
+      <button class="btn-p" onclick="document.getElementById('qa').scrollIntoView({behavior:'smooth'})">Get a Free Quote →</button>
+      <button class="btn-o" onclick="showPage('contact')">Talk to the Team</button>
+    </div>
+  </div>
+  <section>
+    <span class="lbl">Our Capabilities</span>
+    <h2 class="ttl">What We <em>Offer</em></h2>
+    <div class="sdg">
+      <div class="sdc"><span class="sdc-ic">🪡</span><div class="sdc-t">Custom Embroidery</div><p class="sdc-d">Sharp, professional embroidered logos and text for polos, caps, hoodies, jackets, and uniforms. Ideal for businesses, clubs, and schools.</p><div class="sdc-fs"><div class="sdc-f">Minimum 6 pieces</div><div class="sdc-f">Up to 15,000 stitch count</div><div class="sdc-f">Digitising included</div><div class="sdc-f">7–10 working days</div></div></div>
+      <div class="sdc"><span class="sdc-ic">🖨️</span><div class="sdc-t">DTF Printing</div><p class="sdc-d">Direct-to-film printing with vibrant, full-colour results and exceptional durability. No minimum orders — one piece or one thousand.</p><div class="sdc-fs"><div class="sdc-f">No minimum order</div><div class="sdc-f">Full CMYK colour range</div><div class="sdc-f">Works on light &amp; dark garments</div><div class="sdc-f">3–5 working days</div></div></div>
+      <div class="sdc"><span class="sdc-ic">📦</span><div class="sdc-t">Branded Merchandise</div><p class="sdc-d">Equip your business, event, or community group with premium branded apparel. Competitive bulk pricing with a dedicated point of contact.</p><div class="sdc-fs"><div class="sdc-f">Competitive bulk pricing</div><div class="sdc-f">Wide garment selection</div><div class="sdc-f">Custom packaging available</div><div class="sdc-f">UK-wide delivery</div></div></div>
+    </div>
+  </section>
+  <div class="proc">
+    <div style="max-width:460px"><span class="lbl">How It Works</span><h2 class="ttl" style="color:var(--cream)">Simple, <em style="color:var(--goldb)">Straightforward</em> Process</h2></div>
+    <div class="proc-steps">
+      <div class="proc-s"><div class="proc-n">01</div><div class="proc-st">Share Your Idea</div><p class="proc-sd">Fill out the quote form with your requirements.</p></div>
+      <div class="proc-s"><div class="proc-n">02</div><div class="proc-st">Get a Quote</div><p class="proc-sd">Response within 24 hours — transparent pricing.</p></div>
+      <div class="proc-s"><div class="proc-n">03</div><div class="proc-st">Approve Design</div><p class="proc-sd">Review your digital mockup and request changes.</p></div>
+      <div class="proc-s"><div class="proc-n">04</div><div class="proc-st">Production</div><p class="proc-sd">Crafted carefully and quality-checked.</p></div>
+      <div class="proc-s"><div class="proc-n">05</div><div class="proc-st">Delivered</div><p class="proc-sd">Packaged properly, on time, to your door.</p></div>
+    </div>
+  </div>
+  <div id="qa" class="qf">
+    <span class="lbl">Get Started</span>
+    <h2 class="ttl">Request a <em>Free Quote</em></h2>
+    <div class="qg">
+      <div>
+        <div class="fg"><label class="fl2">Full Name</label><input class="fi" type="text" placeholder="Your full name"/></div>
+        <div class="fg"><label class="fl2">Email Address</label><input class="fi" type="email" placeholder="your@email.com"/></div>
+        <div class="fg"><label class="fl2">Organisation (if applicable)</label><input class="fi" type="text" placeholder="Business, school, club name..."/></div>
+        <div class="fg"><label class="fl2">Service Required</label><select class="fs"><option>Select a service...</option><option>Custom Embroidery</option><option>DTF Printing</option><option>Branded Merchandise</option><option>Not Sure Yet</option></select></div>
+        <div class="fg"><label class="fl2">Estimated Quantity</label><select class="fs"><option>Select quantity...</option><option>1–10</option><option>11–50</option><option>51–100</option><option>100+</option></select></div>
+        <div class="fg"><label class="fl2">Tell Us About Your Project</label><textarea class="fta" placeholder="Design idea, colours, placement, deadline..."></textarea></div>
+        <button class="btn-p" style="width:100%;justify-content:center" onclick="submitQuote()">Submit Quote Request →</button>
+      </div>
+      <div>
+        <div class="qi-item"><span class="qi-ic">⚡</span><div><div class="qi-t">Response Within 24 Hours</div><div class="qi-d">We respond to all enquiries on the next working day.</div></div></div>
+        <div class="qi-item"><span class="qi-ic">✦</span><div><div class="qi-t">No Commitment Required</div><div class="qi-d">A quote costs nothing. No pressure or obligation.</div></div></div>
+        <div class="qi-item"><span class="qi-ic">🛡️</span><div><div class="qi-t">Quality Guaranteed</div><div class="qi-d">If something's not right, we make it right.</div></div></div>
+        <div class="qi-item"><span class="qi-ic">📍</span><div><div class="qi-t">UK-Based, UK Shipping</div><div class="qi-d">No overseas delays, no hidden import costs.</div></div></div>
+      </div>
+    </div>
+  </div>
+  <footer><div class="f-bt"><span class="f-cp">© 2024 Greater Than Apparel</span><button class="btn-gh" style="color:var(--inkl)" onclick="showPage('home')">← Home</button></div></footer>
+</div>
+
+<!-- ====================================================
+     ABOUT
+==================================================== -->
+<div class="page" id="page-about">
+  <div class="ab-hero">
+    <div>
+      <span class="lbl">Our Story</span>
+      <h1 class="ttl">Built on<br><em>Quality &amp; Purpose</em></h1>
+      <div class="dvd"></div>
+      <p class="bod">We started as a passion project at a kitchen table, and while we've grown, we've stayed true to our roots. Today, Greater Than operates as a specialised home-based studio in Bedford, equipped with professional-grade technology. We've traded the "hobby" tools for industrial gear, but our "small business" heart hasn't changed. By keeping things personal, we can treat every single stitch and print with the same "perfectionist" eye we had on day one.</p>
+      <div style="margin-top:22px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;gap:8px;align-items:baseline"><span style="font-size:0.67rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:600;flex-shrink:0">Vision:</span><span class="bod" style="margin:0">Setting the gold standard for custom apparel, from Bedford to the world.</span></div>
+        <div style="display:flex;gap:8px;align-items:baseline"><span style="font-size:0.67rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:600;flex-shrink:0">Mission:</span><span class="bod" style="margin:0">Professional personalisation with a personal touch.</span></div>
+      </div>
+      <div style="margin-top:22px">
+        <div style="font-size:0.67rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:10px">Our Promise</div>
+        <p class="bod" style="margin-bottom:14px">We don't believe you should have to order a hundred shirts just to get one you love. We've built our business around three core pillars:</p>
+        <div class="pf">
+          <div class="pf-i"><span><strong style="color:var(--inkm)">No Minimums:</strong> Whether you need one bespoke gift for a friend or a full set of uniforms for your team, we're on it. No order is too small.</span></div>
+          <div class="pf-i"><span><strong style="color:var(--inkm)">Premium Garments:</strong> We only use high-quality apparel that feels as good as it looks. If we wouldn't wear it ourselves, we won't sell it to you.</span></div>
+          <div class="pf-i"><span><strong style="color:var(--inkm)">Hand-Finished Care:</strong> Every item is checked by a real person (not just a machine) to ensure your design stands the test of time.</span></div>
+        </div>
+      </div>
+      <p class="bod" style="margin-top:18px">Let's create something together. Whether you have a fully-vetted brand logo or just a rough idea on a napkin, we're here to help you bring it to life.</p>
+      <p class="bod" style="margin-top:10px">Ready to get started? <a onclick="showPage('contact')" style="color:var(--gold);cursor:pointer;text-decoration:underline;text-underline-offset:3px">Send us a message →</a></p>
+      <div style="margin-top:30px;display:flex;gap:12px;flex-wrap:wrap">
+        <button class="btn-p" onclick="showPage('shop')">Shop the Collection</button>
+        <button class="btn-o" onclick="showPage('custom')">Custom Apparel</button>
+      </div>
+    </div>
+    <div class="ab-v">
+      <div class="ab-fa"></div>
+      <img class="ab-img" src="https://static.wixstatic.com/media/3530cc_a3f8e41450cf4de1994916f6c18a81e7~mv2.jpg/v1/fill/w_980,h_654,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/3530cc_a3f8e41450cf4de1994916f6c18a81e7~mv2.jpg"
+           alt="Greater Than Apparel" onerror="this.style.minHeight='400px';this.style.background='var(--cream-d)'"/>
+      <div class="ab-fb2"></div>
+    </div>
+  </div>
+  <div class="st-bar">
+    <div class="st-i"><span class="st-n">500+</span><span class="st-l">Happy Customers</span></div>
+    <div class="st-i"><span class="st-n">5★</span><span class="st-l">Average Rating</span></div>
+    <div class="st-i"><span class="st-n">100%</span><span class="st-l">Quality Guaranteed</span></div>
+    <div class="st-i"><span class="st-n">UK</span><span class="st-l">Based &amp; Shipping</span></div>
+  </div>
+  <section>
+    <div style="max-width:440px"><span class="lbl">What Drives Us</span><h2 class="ttl">Our Core <em>Values</em></h2></div>
+    <div class="av-g">
+      <div class="av"><span class="av-n">01</span><div class="av-t">Uncompromising Quality</div><p class="av-d">We don't cut corners. From fabric to finishing, every product is made to last and held to the highest standard.</p></div>
+      <div class="av"><span class="av-n">02</span><div class="av-t">Personal Service</div><p class="av-d">You're not a number. We listen, we communicate, and we make sure you receive exactly what you imagined.</p></div>
+      <div class="av"><span class="av-n">03</span><div class="av-t">Community First</div><p class="av-d">We actively support local businesses, groups, and organisations. We're part of the same community and proud of it.</p></div>
+      <div class="av"><span class="av-n">04</span><div class="av-t">Honest Pricing</div><p class="av-d">Transparent quotes, no hidden fees. You'll always know exactly what you're paying for and why.</p></div>
+    </div>
+  </section>
+  <section style="background:var(--cream-d);border-top:1px solid var(--gb)">
+    <div style="max-width:420px"><span class="lbl">Testimonials</span><h2 class="ttl">Trusted Across <em>the UK</em></h2></div>
+    <div class="tg">
+      <div class="tc"><div class="tc-s">★★★★★</div><p class="tc-t">"Had our club kit done through Greater Than and every member was made up with the quality. Will definitely be back."</p><div class="tc-a"><div class="tc-av">J</div><div><div class="tc-n">James T.</div><div class="tc-r">Sports Club, Leeds</div></div></div></div>
+      <div class="tc"><div class="tc-s">★★★★★</div><p class="tc-t">"Got the 'girl mum' tee for Mother's Day. She loved it. Arrived quickly and quality exceeded what I expected for the price."</p><div class="tc-a"><div class="tc-av">P</div><div><div class="tc-n">Priya N.</div><div class="tc-r">Customer, Leicester</div></div></div></div>
+      <div class="tc"><div class="tc-s">★★★★★</div><p class="tc-t">"Needed branded workwear on a tight deadline. The team sorted us out with no fuss — brilliant service."</p><div class="tc-a"><div class="tc-av">C</div><div><div class="tc-n">Craig B.</div><div class="tc-r">Business Owner, Bristol</div></div></div></div>
+    </div>
+  </section>
+  <footer><div class="f-bt"><span class="f-cp">© 2024 Greater Than Apparel</span><button class="btn-gh" style="color:var(--inkl)" onclick="showPage('home')">← Home</button></div></footer>
+</div>
+
+<!-- ====================================================
+     CONTACT
+==================================================== -->
+<div class="page" id="page-contact">
+  <div class="ct-l">
+    <div>
+      <span class="lbl">Get In Touch</span>
+      <h1 class="ttl">We're Here<br><em>to Help</em></h1>
+      <p class="bod">Got a question about an order? Want to explore custom orders? Just want a chat before committing? We're friendly, responsive, and based in the UK.</p>
+      <div class="ct-il">
+        <div class="ct-ir"><div class="ct-ii">✉</div><div><div class="ct-il2">Email</div><div class="ct-iv"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bcd4d9d0d0d3fcdbced9ddc8d9cec8d4ddd2ddccccddced9d092dfd392c9d7">[email&#160;protected]</a></div></div></div>
+        <div class="ct-ir"><div class="ct-ii">🌐</div><div><div class="ct-il2">Website</div><div class="ct-iv">greaterthanapparel.co.uk</div></div></div>
+        <div class="ct-ir"><div class="ct-ii">🕐</div><div><div class="ct-il2">Response Time</div><div class="ct-iv">Within 24 hours (Mon–Fri)</div></div></div>
+        <div class="ct-ir"><div class="ct-ii">📍</div><div><div class="ct-il2">Based In</div><div class="ct-iv">United Kingdom</div></div></div>
+      </div>
+      <div style="margin-top:18px">
+        <div style="font-size:0.67rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--inkx);margin-bottom:12px">Follow Us</div>
+        <div class="sl">
+          <a class="sl-a" href="https://www.instagram.com/greater_thanapparel?igsh=MWZmb3J1ZTRkY3Nwcg==" target="_blank" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a class="sl-a" href="https://www.tiktok.com/@greater_thanapparel" target="_blank" title="TikTok"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.67a8.18 8.18 0 0 0 4.78 1.52V6.72a4.85 4.85 0 0 1-1.01-.03z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="ct-fb">
+      <div style="font-family:var(--serif);font-size:1.45rem;color:var(--ink);font-weight:500;margin-bottom:26px">Send Us a Message</div>
+      <div class="fg"><label class="fl2">Your Name</label><input class="fi" type="text" placeholder="First and last name"/></div>
+      <div class="fg"><label class="fl2">Email Address</label><input class="fi" type="email" placeholder="your@email.com"/></div>
+      <div class="fg"><label class="fl2">Subject</label><select class="fs"><option>General Enquiry</option><option>Order Question</option><option>Custom Apparel</option><option>Returns / Exchanges</option><option>Bulk / Business Order</option></select></div>
+      <div class="fg"><label class="fl2">Message</label><textarea class="fta" placeholder="Tell us how we can help..."></textarea></div>
+      <button class="btn-p" style="width:100%;justify-content:center" onclick="submitContact()">Send Message →</button>
+    </div>
+  </div>
+  <section style="background:var(--cream-d);border-top:1px solid var(--gb)">
+    <div style="max-width:420px;margin-bottom:36px"><span class="lbl">FAQ</span><h2 class="ttl">Common <em>Questions</em></h2></div>
+    <div style="max-width:700px;display:flex;flex-direction:column">
+      <div class="fq" onclick="toggleFaq(this)"><div class="fq-q"><span>What's your turnaround time?</span><span class="fq-ic">+</span></div><p class="fq-a">DTF printing: 3–5 working days. Custom embroidery: 7–10 working days. Rush options may be available — contact us to discuss.</p></div>
+      <div class="fq" onclick="toggleFaq(this)"><div class="fq-q"><span>Is there a minimum order for custom work?</span><span class="fq-ic">+</span></div><p class="fq-a">DTF printing has no minimum — we'll do a single piece. Embroidery requires a minimum of 6 garments. Promotional merch minimums vary by product.</p></div>
+      <div class="fq" onclick="toggleFaq(this)"><div class="fq-q"><span>Do you ship across the UK?</span><span class="fq-ic">+</span></div><p class="fq-a">Yes — we ship to all parts of the UK. Standard delivery 2–4 working days. Free shipping on orders over £60.</p></div>
+      <div class="fq" onclick="toggleFaq(this)"><div class="fq-q"><span>What's your returns policy?</span><span class="fq-ic">+</span></div><p class="fq-a">30-day returns on ready-made items in original condition. Custom orders are non-refundable but if there's a quality issue, we'll always make it right.</p></div>
+      <div class="fq" onclick="toggleFaq(this)"><div class="fq-q"><span>Can I supply my own garments?</span><span class="fq-ic">+</span></div><p class="fq-a">Yes — we accept customer-supplied garments for printing and embroidery. Please contact us before sending to confirm compatibility.</p></div>
+    </div>
+  </section>
+  <footer><div class="f-bt"><span class="f-cp">© 2024 Greater Than Apparel. UK Registered.</span><button class="btn-gh" style="color:var(--inkl)" onclick="showPage('home')">← Home</button></div></footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+let cart=[],cartOpen=false,mobOpen=false;
+let curP={name:'',price:''};
+
+function showPage(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const p=document.getElementById('page-'+n);
+  if(p) p.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(mobOpen) toggleMobileNav();
+  if(n==='shop'){
+    document.querySelectorAll('.pc').forEach(c=>c.style.display='');
+    document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));
+    document.querySelector('.fb')?.classList.add('active');
+  }
+}
+function toggleCart(){
+  cartOpen=!cartOpen;
+  document.getElementById('c-ov').classList.toggle('open',cartOpen);
+  document.getElementById('c-dr').classList.toggle('open',cartOpen);
+}
+function toggleMobileNav(){
+  mobOpen=!mobOpen;
+  document.getElementById('mob-nav').classList.toggle('open',mobOpen);
+}
+function addToCart(name,price){
+  const e=cart.find(i=>i.name===name);
+  if(e) e.qty++;else cart.push({name,price,qty:1});
+  updateCart();showToast(name+' added to bag');
+}
+function updateCart(){
+  const cnt=cart.reduce((s,i)=>s+i.qty,0);
+  document.getElementById('cart-count').textContent=cnt;
+  const el=document.getElementById('c-items');
+  if(!cart.length){
+    el.innerHTML='<div class="c-em"><div class="c-em-ic">🛍️</div><div class="c-em-t">Your bag is empty</div><p style="font-size:0.76rem;color:var(--inkx);margin-top:7px">Add something you\'ll love</p></div>';
+  } else {
+    el.innerHTML=cart.map(i=>`<div class="ci"><div class="ci-img" style="display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1rem;color:var(--inkx)">&gt;</div><div style="flex:1"><div class="ci-n">${i.name}</div><div class="ci-v">Size: M · Colour: Black</div><div style="display:flex;align-items:center;gap:9px;margin-top:7px"><button onclick="chgQty('${i.name.replace(/'/g,"\\'")}', -1)" style="width:25px;height:25px;border:1.5px solid var(--gb);border-radius:2px;cursor:pointer;background:transparent;color:var(--ink);font-size:1rem">−</button><span style="font-size:0.86rem;font-weight:500">${i.qty}</span><button onclick="chgQty('${i.name.replace(/'/g,"\\'")}', 1)" style="width:25px;height:25px;border:1.5px solid var(--gb);border-radius:2px;cursor:pointer;background:transparent;color:var(--ink);font-size:1rem">+</button></div></div><div class="ci-p">${i.price}</div></div>`).join('');
+  }
+  const tot=cart.reduce((s,i)=>s+parseFloat(i.price.replace('£',''))*i.qty,0);
+  document.getElementById('c-total').textContent='£'+tot.toFixed(2);
+}
+function chgQty(name,d){
+  const i=cart.find(x=>x.name===name);
+  if(i){i.qty+=d;if(i.qty<=0) cart=cart.filter(x=>x.name!==name);}
+  updateCart();
+}
+function checkout(){showToast('Checkout — connect your payment provider here');}
+
+const productData={
+  'grand mum.':{
+    desc:'Premium quality tee crafted from 100% ring-spun cotton. Soft, durable, and designed to hold its shape wash after wash. A thoughtful and stylish gift for someone special.',
+    thumbs:['https://static.wixstatic.com/media/3530cc_e1ac490c5b5b44ffae6f329aff2de8cf~mv2.jpeg/v1/fill/w_300,h_450,al_c,q_85,enc_avif/3530cc_e1ac490c5b5b44ffae6f329aff2de8cf~mv2.jpeg','https://static.wixstatic.com/media/3530cc_c2924ecd95bf4537bb2ee935611af230~mv2.jpeg/v1/fill/w_300,h_450,al_c,q_85,enc_avif/3530cc_c2924ecd95bf4537bb2ee935611af230~mv2.jpeg','https://static.wixstatic.com/media/3530cc_a043d4dd27324bea849a6bac4fdea44c~mv2.png/v1/fill/w_300,h_450,al_c,q_90,enc_avif/3530cc_a043d4dd27324bea849a6bac4fdea44c~mv2.png','https://static.wixstatic.com/media/3530cc_bc21cee82ed74c4396ba6bd803623c53~mv2.jpeg/v1/fill/w_300,h_450,al_c,q_85,enc_avif/3530cc_bc21cee82ed74c4396ba6bd803623c53~mv2.jpeg']
+  },
+  'that mum.':{
+    desc:'Premium quality tee crafted from 100% ring-spun cotton. Soft, durable, and designed to hold its shape wash after wash. A thoughtful and stylish gift for someone special.',
+    thumbs:['https://static.wixstatic.com/media/3530cc_a043d4dd27324bea849a6bac4fdea44c~mv2.png/v1/fill/w_300,h_450,al_c,q_90,enc_avif/3530cc_a043d4dd27324bea849a6bac4fdea44c~mv2.png','https://static.wixstatic.com/media/3530cc_e1ac490c5b5b44ffae6f329aff2de8cf~mv2.jpeg/v1/fill/w_300,h_450,al_c,q_85,enc_avif/3530cc_e1ac490c5b5b44ffae6f329aff2de8cf~mv2.jpeg','','']
+  },
+  'pro mum.':{
+    desc:'Premium quality tee crafted from 100% ring-spun cotton. Soft, durable, and designed to hold its shape wash after wash. A thoughtful and stylish gift for someone special.',
+    thumbs:['https://static.wixstatic.com/media/3530cc_bc21cee82ed74c4396ba6bd803623c53~mv2.jpeg/v1/fill/w_300,h_300,al_c,q_85,enc_avif/3530cc_bc21cee82ed74c4396ba6bd803623c53~mv2.jpeg','https://static.wixstatic.com/media/3530cc_e1ac490c5b5b44ffae6f329aff2de8cf~mv2.jpeg/v1/fill/w_300,h_450,al_c,q_85,enc_avif/3530cc_e1ac490c5b5b44ffae6f329aff2de8cf~mv2.jpeg','','']
+  },
+  'boy mum.':{
+    desc:'Premium quality tee crafted from 100% ring-spun cotton. Soft, durable, and designed to hold its shape wash after wash. A thoughtful and stylish gift for someone special.',
+    thumbs:['https://static.wixstatic.com/media/3530cc_82c4f2a490d744f1a65b1d017ff79d83~mv2.jpeg/v1/fill/w_300,h_450,al_c,q_85,enc_avif/3530cc_82c4f2a490d744f1a65b1d017ff79d83~mv2.jpeg','https://static.wixstatic.com/media/3530cc_e1ac490c5b5b44ffae6f329aff2de8cf~mv2.jpeg/v1/fill/w_300,h_450,al_c,q_85,enc_avif/3530cc_e1ac490c5b5b44ffae6f329aff2de8cf~mv2.jpeg','','']
+  },
+  'girl mum.':{
+    desc:'Premium quality tee crafted from 100% ring-spun cotton. Soft, durable, and designed to hold its shape wash after wash. A thoughtful and stylish gift for someone special.',
+    thumbs:['https://static.wixstatic.com/media/3530cc_805bf26ed98d45c6ac9c5e5f7f9a8653~mv2.jpeg/v1/fill/w_300,h_450,al_c,q_85,enc_avif/3530cc_805bf26ed98d45c6ac9c5e5f7f9a8653~mv2.jpeg','https://static.wixstatic.com/media/3530cc_82c4f2a490d744f1a65b1d017ff79d83~mv2.jpeg/v1/fill/w_300,h_450,al_c,q_85,enc_avif/3530cc_82c4f2a490d744f1a65b1d017ff79d83~mv2.jpeg','','']
+  },
+  'Redeemed T-Shirt':{
+    desc:'Wear your faith with pride. The Redeemed T-Shirt is part of our GT> faith-inspired collection — a bold statement of identity and purpose, crafted from 100% cotton for everyday comfort.',
+    thumbs:['https://static.wixstatic.com/media/3530cc_8dc639470c80479290eb26a6855bfde0~mv2.png/v1/fill/w_300,h_450,al_c,q_90,enc_avif,quality_auto/3530cc_8dc639470c80479290eb26a6855bfde0~mv2.png','','','']
+  },
+  'Jesus [3D] Hoodie':{
+    desc:'A faith statement you can feel. This premium hoodie brings the name of Jesus to life in bold 3D print — heavyweight, warm, and built to turn heads and start conversations.',
+    thumbs:['https://static.wixstatic.com/media/3530cc_37d7bb02a1304e26994cfcfbbff070f4~mv2.jpg/v1/fill/w_300,h_450,al_c,q_85,enc_avif,quality_auto/3530cc_37d7bb02a1304e26994cfcfbbff070f4~mv2.jpg','','','']
+  },
+  'Say Less (Front)':{
+    desc:'Faith-inspired fashion with purpose. 100% cotton tee with Proverbs 10:19 on the back — "If you talk too much, you will soon do something wrong. But if you are wise you will stop talking." Wear your wisdom.',
+    thumbs:['https://static.wixstatic.com/media/3530cc_b3c6c7e9193d4695a152c1b6f5040ac7~mv2.png/v1/fill/w_300,h_450,al_c,q_90,enc_avif,quality_auto/3530cc_b3c6c7e9193d4695a152c1b6f5040ac7~mv2.png','Images/Say Less front Black.png','https://static.wixstatic.com/media/3530cc_02c8446f289f41508ce0c579ddfe761f~mv2.png/v1/fill/w_300,h_450,al_c,q_90,enc_avif,quality_auto/3530cc_02c8446f289f41508ce0c579ddfe761f~mv2.png','']
+  },
+  'Say Less (Back)':{
+    desc:'Faith-inspired fashion with purpose. 100% cotton tee with Proverbs 10:19 on the back — "If you talk too much, you will soon do something wrong. But if you are wise you will stop talking." Wear your wisdom.',
+    thumbs:['https://static.wixstatic.com/media/3530cc_8e71b639b39d4168b579276e00644810~mv2.png/v1/fill/w_300,h_450,al_c,q_90,enc_avif,quality_auto/3530cc_8e71b639b39d4168b579276e00644810~mv2.png','Images/Say Less Back white.png','https://static.wixstatic.com/media/3530cc_44a02d6270af4fe5929c4a426ff1fdc9~mv2.png/v1/fill/w_300,h_450,al_c,q_90,enc_avif,quality_auto/3530cc_44a02d6270af4fe5929c4a426ff1fdc9~mv2.png','']
+  }
+};
+function openProduct(name,col,price,img){
+  curP={name,price};
+  document.getElementById('pd-name').textContent=name;
+  document.getElementById('pd-col').textContent=col;
+  document.getElementById('pd-price').textContent=price;
+  const mainImg=document.getElementById('pd-main-img');
+  mainImg.src=img;
+  const data=productData[name]||{};
+  document.querySelector('.pd-desc').textContent=data.desc||'Premium quality apparel crafted from 100% ring-spun cotton. Soft, durable, and designed to hold its shape wash after wash.';
+  const thumbs=data.thumbs||[img,'','',''];
+  for(let i=0;i<4;i++){
+    const tImg=document.getElementById('pd-t'+i);
+    const tDiv=tImg.parentElement;
+    const src=thumbs[i]||'';
+    tImg.src=src;
+    tImg.alt=name;
+    tDiv.style.display=src?'':'none';
+    tDiv.classList.toggle('active',i===0);
+    (function(s){
+      tDiv.onclick=s?function(){mainImg.src=s;document.querySelectorAll('.pd-thumb').forEach(d=>d.classList.remove('active'));tDiv.classList.add('active');}:null;
+    })(src);
+  }
+  document.getElementById('pd-add').onclick=()=>addToCart(name,price);
+  showPage('product');
+}
+function filterProducts(btn){
+  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const f=btn.textContent.trim();
+  document.querySelectorAll('.pc').forEach(card=>{
+    if(f==='All'){card.style.display='';}
+    else if(f==='GT> Collection'){card.style.display=card.dataset.collection==='gt'?'':'none';}
+    else if(f==='mum. Collection'||f==='Special Offers'){card.style.display=card.dataset.collection==='mum'?'':'none';}
+    else{card.style.display='';}
+  });
+}
+function showShopFiltered(collection){
+  if(collection==='loc'){
+    showPage('shop');
+    document.querySelectorAll('.pc').forEach(c=>c.style.display='');
+    document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));
+    document.querySelector('.fb')?.classList.add('active');
+    showToast('LocNation Collection — Coming Soon 🔥');
+    return;
+  }
+  showPage('shop');
+  if(collection==='all'){
+    document.querySelectorAll('.pc').forEach(c=>c.style.display='');
+    document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));
+    document.querySelector('.fb')?.classList.add('active');
+    return;
+  }
+  const map={'gt':'GT> Collection','mum':'mum. Collection'};
+  document.querySelectorAll('.pc').forEach(card=>{
+    card.style.display=card.dataset.collection===collection?'':'none';
+  });
+  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));
+  const btn=Array.from(document.querySelectorAll('.fb'))
+    .find(b=>b.textContent.trim()===map[collection]);
+  if(btn) btn.classList.add('active');
+}
+function selSize(b){document.querySelectorAll('.sz-b').forEach(x=>x.classList.remove('active'));b.classList.add('active')}
+function selCol(d){document.querySelectorAll('.col-d').forEach(x=>x.classList.remove('active'));d.classList.add('active')}
+function handleEmail(){
+  const v=document.getElementById('eml-in').value;
+  if(v&&v.includes('@')){showToast("You're on the list! 🎉");document.getElementById('eml-in').value='';}
+  else showToast('Please enter a valid email address');
+}
+function submitQuote(){showToast('Quote sent — we\'ll respond within 24 hours');}
+function submitContact(){showToast('Message sent — thanks for getting in touch!');}
+function toggleFaq(c){
+  const a=c.querySelector('.fq-a'),ic=c.querySelector('.fq-ic');
+  const o=a.style.display==='block';
+  a.style.display=o?'none':'block';ic.textContent=o?'+':'−';
+}
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3400);
+}
+document.querySelectorAll('.brand-switch button').forEach(b=>{b.onclick=()=>{const t=b.dataset.b;document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===t));document.querySelectorAll('.brand-switch button').forEach(x=>x.classList.toggle('on',x===b));window.scrollTo({top:0,behavior:'smooth'});};});
+(function(){
+  const slides=document.querySelectorAll('.hero-slide');
+  const caps=['mum. Collection — From £24.99','GT> Collection — From £50.00','GT> Collection — From £20.99'];
+  let cur=0;
+  setInterval(function(){
+    slides[cur].classList.remove('active');
+    cur=(cur+1)%slides.length;
+    slides[cur].classList.add('active');
+    const t=document.getElementById('hero-cap-txt');
+    if(t) t.textContent=caps[cur];
+  },4500);
+})();
+</script>
+<style>
+
+#mum{background:#faf8f5;color:#2a2520;font-family:'Jost',sans-serif;font-weight:300;padding-top:72px}
+#mum .hero{min-height:92vh;display:grid;grid-template-columns:1fr 1fr;align-items:center}
+#mum .ht{padding:0 8%}
+#mum .hi{aspect-ratio:3/4;background:#ede5d8 center/cover no-repeat}
+#mum .eb{font-size:.68rem;letter-spacing:.32em;text-transform:uppercase;color:#a8998a;margin-bottom:30px}
+#mum h1{font-family:'Libre Baskerville',serif;font-weight:400;font-size:clamp(2.2rem,4.2vw,3.8rem);line-height:1.15;margin-bottom:26px;color:#2a2520}
+#mum h1 em{font-style:italic;color:#a8998a}
+#mum .ld{font-size:1rem;color:#5a5249;max-width:440px;margin-bottom:36px;line-height:1.7}
+#mum .cta{display:inline-block;padding:14px 36px;border:1px solid #2a2520;color:#2a2520;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;transition:all .35s}
+#mum .cta:hover{background:#2a2520;color:#faf8f5}
+#mum section{padding:100px 8%}
+#mum .sh{text-align:center;margin-bottom:60px}
+#mum .sh h2{font-family:'Libre Baskerville',serif;font-weight:400;font-size:2.2rem;margin-bottom:14px}
+#mum .sh h2 em{font-style:italic;color:#a8998a}
+#mum .sh p{color:#8a8278;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase}
+#mum .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:44px;max-width:1200px;margin:0 auto}
+#mum .card{text-align:center}
+#mum .card img{aspect-ratio:3/4;object-fit:cover;width:100%;margin-bottom:18px;transition:opacity .3s}
+#mum .card:hover img{opacity:.88}
+#mum .card h3{font-family:'Libre Baskerville',serif;font-weight:400;font-size:1rem;margin-bottom:4px}
+#mum .card .pr{color:#a8998a;font-size:.85rem}
+#mum footer{padding:70px 5% 40px;text-align:center;border-top:1px solid #ede5d8;font-family:'Libre Baskerville',serif;font-style:italic;color:#a8998a}
+@media(max-width:760px){#mum .hero{grid-template-columns:1fr}#mum .hi{order:-1;aspect-ratio:1/1}}
+/* 1 – Card hover: lift + label reveal */
+#mum .card{text-align:center;overflow:hidden;transition:transform .35s}
+#mum .card:hover{transform:translateY(-7px)}
+#mum .card h3,#mum .card .pr{opacity:.5;transform:translateY(6px);transition:opacity .32s,transform .32s}
+#mum .card:hover h3,#mum .card:hover .pr{opacity:1;transform:translateY(0)}
+#mum .card:hover img{opacity:.92}
+
+/* 2 – Image aspect ratio on mobile ≤480px */
+@media(max-width:480px){#mum .card img{aspect-ratio:1/1}}
+
+/* 3 – Footer: breathing room + gold top border */
+#mum footer{padding:100px 5% 64px;border-top:1px solid #a8998a}
+
+#loc{background:#0a0a0a;color:#f5f1ea;font-family:'Space Grotesk',sans-serif;padding-top:72px}
+#loc .hero{min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 5%}
+#loc .eb{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:#c8954a;margin-bottom:28px}
+#loc .display{display:flex;gap:.15em;justify-content:center;flex-wrap:wrap;line-height:.9;margin-bottom:34px}
+#loc .display span{font-family:'Yeseva One',serif;font-size:clamp(3.2rem,10vw,8.5rem);letter-spacing:-.02em}
+#loc .display .fill{color:#f5f1ea}
+#loc .display .out{color:transparent;-webkit-text-stroke:1.5px #c8954a}
+#loc .ld{max-width:560px;color:#a8a09a;font-size:1rem;margin-bottom:38px;font-weight:300}
+#loc .cta{display:inline-block;padding:16px 40px;background:#c8954a;color:#0a0a0a;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;transition:all .3s}
+#loc .cta:hover{background:#f5f1ea;transform:translateY(-2px)}
+#loc section{padding:100px 5%}
+#loc .sh{text-align:center;margin-bottom:60px}
+#loc .sh h2{font-family:'Yeseva One',serif;font-size:clamp(2rem,5vw,3.4rem);margin-bottom:14px}
+#loc .sh h2 em{color:#c8954a;font-style:normal}
+#loc .sh p{color:#8a8278;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+#loc .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;max-width:1280px;margin:0 auto}
+#loc .card{background:#15110c;border:1px solid #2a2620;overflow:hidden;transition:all .35s}
+#loc .card:hover{border-color:#c8954a;transform:translateY(-6px)}
+#loc .ci{aspect-ratio:4/5;background:#1c1814;display:flex;align-items:center;justify-content:center;font-family:'Yeseva One',serif;color:#3a342a}
+#loc .cb{padding:22px 24px}
+#loc .card h3{font-family:'Yeseva One',serif;font-size:1.25rem;margin-bottom:6px}
+#loc .card .pr{color:#c8954a;font-size:.9rem;font-weight:500}
+#loc .manifesto{background:#15110c;text-align:center}
+#loc .manifesto p{font-family:'Yeseva One',serif;font-size:clamp(1.4rem,3vw,2.2rem);max-width:800px;margin:0 auto;line-height:1.4}
+#loc .manifesto p em{color:#c8954a;font-style:italic}
+#loc footer{padding:60px 5% 40px;text-align:center;border-top:1px solid #2a2620;font-family:'Yeseva One',serif;color:#c8954a}
+#loc footer small{display:block;font-family:'Space Grotesk',sans-serif;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#5a5249;margin-top:10px}
+/* 1 – .display: tighter spacing + mobile wrapping fix */
+#loc .display span{font-family:'Yeseva One',serif;font-size:clamp(3.2rem,10vw,8.5rem);letter-spacing:-.04em}
+@media(max-width:480px){
+  #loc .display{gap:.08em}
+  #loc .display span{font-size:clamp(1.6rem,9vw,3rem);letter-spacing:-.03em}
+}
+
+/* 2 – .grid: reduced gap on mobile */
+@media(max-width:600px){#loc .grid{gap:16px}}
+
+</style>
+
+<section class="page" id="mum">
+  <div class="hero">
+    <div class="ht">
+      <div class="eb">the mum. collection</div>
+      <h1>Quietly stitched, <em>endlessly worn.</em></h1>
+      <p class="ld">Minimalist embroidered apparel for every kind of mum. Considered pieces, made slowly, designed to step back and let you live.</p>
+      <a class="cta" href="#mshop">Shop the collection</a>
+    </div>
+    <div class="hi" style="background-image:url('IMG_3191_2.PNG')"></div>
+  </div>
+  <section id="mshop">
+    <div class="sh"><h2>The <em>collection</em></h2><p>Six words · endless meaning</p></div>
+    <div class="grid">
+      <div class="card"><img src="IMG_3187_2.PNG" alt="that mum tee charcoal"><h3>that mum. — Charcoal</h3><div class="pr">£32</div></div>
+      <div class="card"><img src="IMG_3189_2.PNG" alt="girl mum tee rose"><h3>girl mum. — Rose Clay</h3><div class="pr">£32</div></div>
+      <div class="card"><img src="IMG_3190_2.PNG" alt="boy mum tee grey"><h3>boy mum. — Heather Grey</h3><div class="pr">£32</div></div>
+      <div class="card"><img src="IMG_3188_2.PNG" alt="grand mum tee natural"><h3>grand mum. — Natural</h3><div class="pr">£32</div></div>
+      <div class="card"><img src="IMG_3182_2.PNG" alt="pro mum tee slate"><h3>pro mum. — Slate</h3><div class="pr">£32</div></div>
+      <div class="card"><img src="IMG_3167_2.PNG" alt="that mum tee charcoal flatlay"><h3>that mum. — Stonewash</h3><div class="pr">£36</div></div>
+    </div>
+  </section>
+  <footer>made slowly · worn always</footer>
+</section>
+
+<section class="page" id="loc">
+  <div class="hero">
+    <div class="eb">LocNation · celebrating the crown</div>
+    <div class="display"><span class="fill">LOC</span><span class="out">NATION</span></div>
+    <p class="ld">Apparel and accessories for the loc'd, the rooted, the unapologetic. Built for the culture, made to outlast the trend.</p>
+    <a class="cta" href="#lshop">Shop the drop</a>
+  </div>
+  <section id="lshop">
+    <div class="sh"><h2>The <em>Drop</em></h2><p>Limited · numbered · earned</p></div>
+    <div class="grid">
+      <div class="card"><div class="ci">Crown Tee</div><div class="cb"><h3>Crown Tee</h3><div class="pr">£36</div></div></div>
+      <div class="card"><div class="ci">Roots Hoodie</div><div class="cb"><h3>Roots Hoodie</h3><div class="pr">£78</div></div></div>
+      <div class="card"><div class="ci">Satin-Lined Cap</div><div class="cb"><h3>Satin Cap</h3><div class="pr">£28</div></div></div>
+      <div class="card"><div class="ci">Loc'd Crewneck</div><div class="cb"><h3>Loc'd Crewneck</h3><div class="pr">£62</div></div></div>
+    </div>
+  </section>
+  <section class="manifesto"><p>We don't grow locs. We <em>grow into them.</em></p></section>
+  <footer>LocNation.<small>© 2026 · part of the Greater Than family</small></footer>
+</section>
+
+</body></html>
