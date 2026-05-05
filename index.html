@@ -480,6 +480,7 @@ footer{padding:68px 5% 42px;background:var(--ink)}
     <a onclick="showPage('custom')">Custom Apparel</a>
     <a onclick="showPage('about')">About</a>
     <a onclick="showPage('contact')">Contact</a>
+    <a onclick="showPage('church-orders')" style="color:var(--gold);border:1px solid var(--gb);padding:5px 12px;border-radius:2px">Sunday School Orders</a>
   </div>
   <div class="nav-actions">
     <button class="nav-cart" onclick="toggleCart()">
@@ -497,6 +498,7 @@ footer{padding:68px 5% 42px;background:var(--ink)}
   <a onclick="showPage('custom');toggleMobileNav()">Custom Apparel</a>
   <a onclick="showPage('about');toggleMobileNav()">About</a>
   <a onclick="showPage('contact');toggleMobileNav()">Contact</a>
+  <a onclick="showPage('church-orders');toggleMobileNav()" style="color:var(--gold)">Sunday School Orders</a>
 </div>
 
 <!-- CART -->
@@ -569,7 +571,7 @@ footer{padding:68px 5% 42px;background:var(--ink)}
   <!-- MARQUEE -->
   <div class="mq">
     <div class="mq-t">
-      <span>Custom Embroidery &nbsp;·&nbsp; <b>No Minimums on DTF</b> &nbsp;·&nbsp; UK-Based Team &nbsp;·&nbsp; Premium Garments &nbsp;·&nbsp; Fast Turnaround &nbsp;·&nbsp; Businesses &nbsp;·&nbsp; Events &nbsp;·&nbsp; Community Groups &nbsp;·&nbsp; <b>Free Shipping Over £60</b> &nbsp;·&nbsp; Custom Embroidery &nbsp;·&nbsp; <b>No Minimums on DTF</b> &nbsp;·&nbsp; UK-Based Team &nbsp;·&nbsp; Premium Garments &nbsp;·&nbsp; Fast Turnaround &nbsp;·&nbsp; Businesses &nbsp;·&nbsp; Events &nbsp;·&nbsp; Community Groups &nbsp;·&nbsp; <b>Free Shipping Over £60</b> &nbsp;·&nbsp;</span>
+      <span>Custom Embroidery &nbsp;·&nbsp; <b>No Minimum Orders</b> &nbsp;·&nbsp; UK-Based Team &nbsp;·&nbsp; Premium Garments &nbsp;·&nbsp; Fast Turnaround &nbsp;·&nbsp; Businesses &nbsp;·&nbsp; Events &nbsp;·&nbsp; Community Groups &nbsp;·&nbsp; <b>Free Shipping Over £60</b> &nbsp;·&nbsp; Custom Embroidery &nbsp;·&nbsp; <b>No Minimum Orders</b> &nbsp;·&nbsp; UK-Based Team &nbsp;·&nbsp; Premium Garments &nbsp;·&nbsp; Fast Turnaround &nbsp;·&nbsp; Businesses &nbsp;·&nbsp; Events &nbsp;·&nbsp; Community Groups &nbsp;·&nbsp; <b>Free Shipping Over £60</b> &nbsp;·&nbsp;</span>
     </div>
   </div>
 
@@ -988,6 +990,18 @@ footer{padding:68px 5% 42px;background:var(--ink)}
     </div>
   </section>
   <footer><div class="f-bt"><span class="f-cp">© 2024 Greater Than Apparel. UK Registered.</span><button class="btn-gh" style="color:var(--inkl)" onclick="showPage('home')">← Home</button></div></footer>
+</div>
+
+<!-- ====================================================
+     SUNDAY SCHOOL ORDERS (Temporary)
+==================================================== -->
+<div class="page" id="page-church-orders" style="min-height:100vh;padding-top:72px">
+  <iframe
+    src="church_tshirt_order_form.html"
+    title="Sunday School T-Shirt Order Form"
+    style="width:100%;border:none;min-height:calc(100vh - 72px);display:block"
+    onload="this.style.height=(this.contentDocument.body.scrollHeight+40)+'px'"
+  ></iframe>
 </div>
 
 <div class="toast" id="toast"></div>
