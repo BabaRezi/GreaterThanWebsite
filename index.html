@@ -493,12 +493,12 @@ footer{padding:68px 5% 42px;background:var(--ink)}
 </nav>
 
 <div class="mob-nav" id="mob-nav">
-  <a onclick="showPage('home');toggleMobileNav()">Home</a>
-  <a onclick="showPage('shop');toggleMobileNav()">Shop</a>
-  <a onclick="showPage('custom');toggleMobileNav()">Custom Apparel</a>
-  <a onclick="showPage('about');toggleMobileNav()">About</a>
-  <a onclick="showPage('contact');toggleMobileNav()">Contact</a>
-  <a onclick="showPage('church-orders');toggleMobileNav()" style="color:var(--gold)">Group Orders</a>
+  <a onclick="showPage('home')">Home</a>
+  <a onclick="showPage('shop')">Shop</a>
+  <a onclick="showPage('custom')">Custom Apparel</a>
+  <a onclick="showPage('about')">About</a>
+  <a onclick="showPage('contact')">Contact</a>
+  <a onclick="showPage('church-orders')" style="color:var(--gold)">Group Orders</a>
 </div>
 
 <!-- CART -->
@@ -1173,6 +1173,7 @@ function showToast(msg){
   t.textContent=msg;t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),3400);
 }
+if(window.location.hash==='#group-orders') showPage('church-orders');
 document.querySelectorAll('.brand-switch button').forEach(b=>{b.onclick=()=>{const t=b.dataset.b;document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===t));document.querySelectorAll('.brand-switch button').forEach(x=>x.classList.toggle('on',x===b));window.scrollTo({top:0,behavior:'smooth'});};});
 (function(){
   const slides=document.querySelectorAll('.hero-slide');
