@@ -1147,7 +1147,7 @@ function stepProduct(dir){
 function openProduct(name,col,price,img){
   curP={name,price};
   document.getElementById('pd-name').textContent=name;
-  document.getElementById('pd-col').textContent=col;
+  const pdCol=document.getElementById('pd-col');if(pdCol) pdCol.textContent=col;
   document.getElementById('pd-price').textContent=price;
   const mainImg=document.getElementById('pd-main-img');
   mainImg.src=img;
