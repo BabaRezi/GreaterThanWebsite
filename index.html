@@ -1059,7 +1059,7 @@ async function checkout(){
     if(data.url) window.location.href=data.url;
     else throw new Error(data.error||'Checkout failed');
   }catch(e){
-    showToast('Checkout failed — please try again');
+    showToast(e.message||'Checkout failed — please try again');
     btn.textContent='Checkout →';btn.disabled=false;
   }
 }

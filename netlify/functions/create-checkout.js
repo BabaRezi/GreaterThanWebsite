@@ -14,11 +14,15 @@ exports.handler = async (event) => {
   }
 
   try {
+    console.log('KEY present:', !!process.env.STRIPE_SECRET_KEY);
     const { items } = JSON.parse(event.body);
+    console.log('Items received:', JSON.stringify(items));
 
     const line_items = items
       .filter(item => PRICE_IDS[item.name])
       .map(item => ({ price: PRICE_IDS[item.name], quantity: item.qty }));
+
+    console.log('Line items:', JSON.stringify(line_items));
 
     if (line_items.length === 0) {
       return { statusCode: 400, body: JSON.stringify({ error: 'No valid items in cart' }) };
@@ -49,6 +53,7 @@ exports.handler = async (event) => {
       body: JSON.stringify({ url: session.url }),
     };
   } catch (err) {
+    console.log('Stripe error:', err.message);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: err.message }),
