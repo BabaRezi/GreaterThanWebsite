@@ -1,11 +1,11 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const PRICE_IDS = {
-  'grand mum.': 'price_1TY3P6S4Cd3nSRcFoBpceGLf',
-  'that mum.':  'price_1TY3P5S4Cd3nSRcFXGoAS897',
-  'pro mum.':   'price_1TY3P5S4Cd3nSRcFWn0iwxZz',
-  'boy mum.':   'price_1TY3P4S4Cd3nSRcFRafgNDd7',
-  'girl mum.':  'price_1TY3P3S4Cd3nSRcFD7p9zyX0',
+  'grand mum.': 'price_1TY5DNAxtHy9SyCUX58HXDlX',
+  'that mum.':  'price_1TY5DNAxtHy9SyCU4qcLEoz5',
+  'pro mum.':   'price_1TY5DMAxtHy9SyCU9j6295kU',
+  'boy mum.':   'price_1TY5DLAxtHy9SyCUtKFcroaD',
+  'girl mum.':  'price_1TY5DLAxtHy9SyCUIDjnNE5D',
 };
 
 exports.handler = async (event) => {
