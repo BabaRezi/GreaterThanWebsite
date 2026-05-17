@@ -1018,7 +1018,7 @@ footer{padding:68px 5% 42px;background:var(--ink)}
 </div>
 
 <script>
-let cart=[],cartOpen=false,mobOpen=false;
+let cart=JSON.parse(localStorage.getItem('gt_cart')||'[]'),cartOpen=false,mobOpen=false;
 let curP={name:'',price:''};
 
 function showPage(n){
@@ -1058,6 +1058,7 @@ function updateCart(){
   }
   const tot=cart.reduce((s,i)=>s+parseFloat(i.price.replace('£',''))*i.qty,0);
   document.getElementById('c-total').textContent='£'+tot.toFixed(2);
+  localStorage.setItem('gt_cart',JSON.stringify(cart));
 }
 function chgQty(name,d){
   const i=cart.find(x=>x.name===name);
@@ -1205,7 +1206,7 @@ if(window.location.hash==='#group-orders') showPage('church-orders');
 (function(){
   const p=new URLSearchParams(window.location.search);
   if(p.get('checkout')==='success'){
-    cart=[];updateCart();
+    cart=[];localStorage.removeItem('gt_cart');updateCart();
     document.getElementById('success-ov').classList.add('show');
     document.getElementById('success-bar-fill').classList.add('draining');
     setTimeout(closeSuccess,7000);
