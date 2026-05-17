@@ -1045,7 +1045,24 @@ function chgQty(name,d){
   if(i){i.qty+=d;if(i.qty<=0) cart=cart.filter(x=>x.name!==name);}
   updateCart();
 }
-function checkout(){showToast('Checkout — connect your payment provider here');}
+async function checkout(){
+  if(cart.length===0){showToast('Your bag is empty');return;}
+  const btn=document.querySelector('.c-ft .btn-p');
+  btn.textContent='Processing…';btn.disabled=true;
+  try{
+    const res=await fetch('/.netlify/functions/create-checkout',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({items:cart.map(i=>({name:i.name,qty:i.qty}))})
+    });
+    const data=await res.json();
+    if(data.url) window.location.href=data.url;
+    else throw new Error(data.error||'Checkout failed');
+  }catch(e){
+    showToast('Checkout failed — please try again');
+    btn.textContent='Checkout →';btn.disabled=false;
+  }
+}
 
 const productData={
   'grand mum.':{
