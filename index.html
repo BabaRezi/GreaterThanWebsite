@@ -1020,18 +1020,27 @@ footer{padding:68px 5% 42px;background:var(--ink)}
 let cart=JSON.parse(localStorage.getItem('gt_cart')||'[]'),cartOpen=false,mobOpen=false;
 let curP={name:'',price:''};
 
-function showPage(n){
+const PAGE_SLUGS={'home':'/','shop':'/shop','about':'/about','contact':'/contact','custom':'/custom','church-orders':'/group-orders'};
+const SLUG_PAGES={'/':'home','/shop':'shop','/about':'about','/contact':'contact','/custom':'custom','/group-orders':'church-orders'};
+function showPage(n,noHistory){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   const p=document.getElementById('page-'+n);
   if(p) p.classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
   if(mobOpen) toggleMobileNav();
+  if(!noHistory){
+    const slug=PAGE_SLUGS[n]||'/';
+    history.pushState({page:n},'',slug);
+  }
   if(n==='shop'){
     document.querySelectorAll('.pc').forEach(c=>c.style.display='');
     document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));
     document.querySelector('.fb')?.classList.add('active');
   }
 }
+window.addEventListener('popstate',function(e){
+  showPage(e.state?e.state.page:'home',true);
+});
 function toggleCart(){
   cartOpen=!cartOpen;
   document.getElementById('c-ov').classList.toggle('open',cartOpen);
@@ -1201,7 +1210,13 @@ function showToast(msg){
   t.textContent=msg;t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),3400);
 }
-if(window.location.hash==='#group-orders') showPage('church-orders');
+(function(){
+  const path=window.location.pathname;
+  const hash=window.location.hash;
+  const page=SLUG_PAGES[path]||(hash==='#group-orders'?'church-orders':'home');
+  history.replaceState({page:page},'',path+window.location.search);
+  if(page!=='home') showPage(page,true);
+})();
 (function(){
   const p=new URLSearchParams(window.location.search);
   if(p.get('checkout')==='success'){
