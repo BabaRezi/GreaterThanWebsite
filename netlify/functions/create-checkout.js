@@ -1,9 +1,9 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const PRICE_IDS = {
-  'grand mum.': 'price_1TY5DNAxtHy9SyCUX58HXDlX',
-  'that mum.':  'price_1TY5DNAxtHy9SyCU4qcLEoz5',
-  'pro mum.':   'price_1TY5DMAxtHy9SyCU9j6295kU',
+  'grand mum.': 'price_1TY5wcAxtHy9SyCUr9trfufE',
+  'that mum.':  'price_1TY5x2AxtHy9SyCUoBXPSMTe',
+  'pro mum.':   'price_1TY5xqAxtHy9SyCUv4XxYvtW',
   'boy mum.':   'price_1TY5DLAxtHy9SyCUtKFcroaD',
   'girl mum.':  'price_1TY5DLAxtHy9SyCUIDjnNE5D',
 };
