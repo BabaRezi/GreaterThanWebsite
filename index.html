@@ -398,6 +398,16 @@ footer{padding:68px 5% 42px;background:var(--ink)}
 .f-logo span{color:var(--goldb)}
 
 /* TOAST */
+.success-ov{position:fixed;inset:0;background:rgba(26,18,8,0.7);z-index:9000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.4s}
+.success-ov.show{opacity:1;pointer-events:all}
+.success-card{background:var(--cream);border-radius:4px;padding:48px 44px;max-width:440px;width:90%;text-align:center}
+.success-ic{font-size:3rem;margin-bottom:16px}
+.success-h{font-family:var(--serif);font-size:1.9rem;color:var(--ink);margin-bottom:10px}
+.success-p{font-size:0.88rem;color:var(--inkm);line-height:1.7;margin-bottom:24px}
+.success-bar{height:3px;background:var(--gb);border-radius:2px;margin-top:24px;overflow:hidden}
+.success-bar-fill{height:100%;background:var(--gold);width:100%;transform-origin:left}
+.success-bar-fill.draining{animation:drain 7s linear forwards}
+@keyframes drain{from{transform:scaleX(1)}to{transform:scaleX(0)}}
 .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(80px);
   background:var(--ink);color:var(--cream);padding:14px 32px;border-radius:2px;
   border-left:3px solid var(--gold);font-size:0.86rem;letter-spacing:0.07em;font-weight:500;
@@ -997,6 +1007,15 @@ footer{padding:68px 5% 42px;background:var(--ink)}
 </div>
 
 <div class="toast" id="toast"></div>
+<div class="success-ov" id="success-ov">
+  <div class="success-card">
+    <div class="success-ic">✓</div>
+    <div class="success-h">Order Confirmed!</div>
+    <p class="success-p">Thank you for your order. You'll receive a confirmation email shortly. We'll get your items packed and on their way within 1–2 working days.</p>
+    <button class="btn-p" style="width:100%;justify-content:center" onclick="closeSuccess()">Continue Shopping</button>
+    <div class="success-bar"><div class="success-bar-fill" id="success-bar-fill"></div></div>
+  </div>
+</div>
 
 <script>
 let cart=[],cartOpen=false,mobOpen=false;
@@ -1183,6 +1202,19 @@ function showToast(msg){
   setTimeout(()=>t.classList.remove('show'),3400);
 }
 if(window.location.hash==='#group-orders') showPage('church-orders');
+(function(){
+  const p=new URLSearchParams(window.location.search);
+  if(p.get('checkout')==='success'){
+    cart=[];updateCart();
+    document.getElementById('success-ov').classList.add('show');
+    document.getElementById('success-bar-fill').classList.add('draining');
+    setTimeout(closeSuccess,7000);
+    history.replaceState(null,'',window.location.pathname);
+  }
+})();
+function closeSuccess(){
+  document.getElementById('success-ov').classList.remove('show');
+}
 document.querySelectorAll('.brand-switch button').forEach(b=>{b.onclick=()=>{const t=b.dataset.b;document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===t));document.querySelectorAll('.brand-switch button').forEach(x=>x.classList.toggle('on',x===b));window.scrollTo({top:0,behavior:'smooth'});};});
 (function(){
   const slides=document.querySelectorAll('.hero-slide');
