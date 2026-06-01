@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gildan Group Order Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #1A2A4A;
+    --gold:   #C9A84C;
+    --white:  #FFFFFF;
+    --off:    #F8F7F4;
+    --smoke:  #EDECE9;
+    --mid:    #9A9690;
+    --dark:   #2C2A26;
+    --blue-in:#EAF4FB;
+    --green:  #E8F5E9;
+    --radius: 10px;
+    --shadow: 0 8px 32px rgba(26,42,74,.12);
+  }
+
+  body { font-family:'DM Sans',sans-serif; background:var(--off); color:var(--dark); padding:2rem 1rem 4rem; min-height:100vh; }
+
+  .form-wrap { max-width:820px; margin:0 auto; background:var(--white); border-radius:16px; box-shadow:var(--shadow); overflow:hidden; animation:rise .6s cubic-bezier(.22,1,.36,1) both; }
+  @keyframes rise { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+  .form-header { background:var(--navy); padding:2.5rem 2.5rem 2rem; position:relative; overflow:hidden; }
+  .form-header::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 80% 0%,rgba(201,168,76,.18) 0%,transparent 60%); }
+  .form-logo { height:64px; width:auto; display:block; margin-bottom:.8rem; object-fit:contain; }
+  .form-header h1 { font-family:'Playfair Display',serif; font-size:clamp(1.6rem,4vw,2.2rem); font-weight:900; color:var(--white); line-height:1.15; letter-spacing:-.01em; }
+  .form-header h1 span { color:var(--gold); }
+  .form-header p { margin-top:.75rem; font-size:.88rem; color:rgba(255,255,255,.62); font-weight:300; letter-spacing:.02em; }
+
+  .stripe { height:5px; background:linear-gradient(90deg,var(--gold) 0%,#e8c96a 50%,var(--gold) 100%); }
+  .form-body { padding:2rem 2.5rem 2.5rem; }
+
+  .section { margin-bottom:2.2rem; }
+  .section-label { display:flex; align-items:center; gap:.6rem; font-size:.72rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:1.1rem; padding-bottom:.5rem; border-bottom:1px solid var(--smoke); }
+  .section-label::before { content:''; display:block; width:18px; height:2px; background:var(--gold); border-radius:2px; }
+
+  .field-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem 1.4rem; }
+  .field-grid .full { grid-column:1/-1; }
+  .field { display:flex; flex-direction:column; gap:.4rem; }
+  .field label { font-size:.8rem; font-weight:600; color:var(--navy); letter-spacing:.02em; }
+  .field label .req { color:var(--gold); margin-left:2px; }
+  .field input, .field textarea {
+    font-family:'DM Sans',sans-serif; font-size:.95rem; background:var(--blue-in);
+    border:1.5px solid #D0E8F5; border-radius:var(--radius); padding:.65rem .9rem;
+    color:var(--dark); transition:border-color .2s,box-shadow .2s,background .2s; outline:none; width:100%;
+  }
+  .field input:focus, .field textarea:focus { border-color:var(--gold); background:#FDFAF3; box-shadow:0 0 0 3px rgba(201,168,76,.15); }
+  .field textarea { resize:vertical; min-height:90px; }
+
+  .size-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(88px,1fr)); gap:.7rem; }
+  .size-group-header {
+    grid-column: 1 / -1;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--smoke);
+    border-left: 3px solid var(--gold);
+    padding: .35rem .7rem;
+    border-radius: 4px;
+    margin-top: .3rem;
+  }
+  .size-item { display:flex; flex-direction:column; align-items:center; gap:.35rem; background:var(--smoke); border-radius:var(--radius); padding:.65rem .4rem .55rem; border:1.5px solid transparent; transition:border-color .2s,background .2s; }
+  .size-item:focus-within { border-color:var(--gold); background:#FDFAF3; }
+  .size-item .size-name { font-size:.78rem; font-weight:700; color:var(--navy); letter-spacing:.03em; }
+  .size-item input[type="number"] { width:100%; text-align:center; font-size:1rem; font-weight:600; background:var(--white); border:1.5px solid #D9D9D9; border-radius:6px; padding:.35rem .2rem; color:var(--dark); -moz-appearance:textfield; transition:border-color .2s,box-shadow .2s; outline:none; }
+  .size-item input[type="number"]::-webkit-inner-spin-button,
+  .size-item input[type="number"]::-webkit-outer-spin-button { -webkit-appearance:none; }
+  .size-item input[type="number"]:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(201,168,76,.15); }
+
+  .totals-bar { display:flex; align-items:center; gap:1.4rem; background:var(--navy); border-radius:var(--radius); padding:1.2rem 1.8rem; margin-top:1.2rem; }
+  .totals-bar .t-label { font-size:.78rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.55); flex:1; }
+  .totals-bar .t-value { font-family:'Playfair Display',serif; font-size:2.2rem; font-weight:700; color:var(--gold); line-height:1; }
+  .totals-bar .t-value.animate { animation:pop .3s cubic-bezier(.34,1.56,.64,1); }
+  @keyframes pop { 0%{transform:scale(1)} 50%{transform:scale(1.12)} 100%{transform:scale(1)} }
+
+  .submit-wrap { margin-top:2rem; display:flex; flex-direction:column; align-items:center; gap:.9rem; }
+  button[type="submit"] { font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:700; letter-spacing:.04em; background:var(--navy); color:var(--white); border:none; border-radius:50px; padding:.9rem 3rem; cursor:pointer; position:relative; overflow:hidden; transition:transform .15s,box-shadow .15s; box-shadow:0 4px 18px rgba(26,42,74,.25); }
+  button[type="submit"]:disabled { opacity:.6; cursor:not-allowed; transform:none !important; }
+  button[type="submit"]::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(201,168,76,.2) 0%,transparent 60%); }
+  button[type="submit"]:not(:disabled):hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(26,42,74,.3); }
+  button[type="submit"]:not(:disabled):active { transform:translateY(0); }
+
+  .print-btn { font-family:'DM Sans',sans-serif; font-size:.85rem; font-weight:500; color:var(--mid); background:none; border:1px solid var(--smoke); border-radius:50px; padding:.5rem 1.5rem; cursor:pointer; transition:color .2s,border-color .2s; }
+  .print-btn:hover { color:var(--navy); border-color:var(--navy); }
+
+  .notice { display:none; border-radius:var(--radius); padding:1rem 1.4rem; text-align:center; font-size:.9rem; font-weight:600; animation:rise .4s ease both; }
+  .notice.show { display:block; }
+  .notice.success { background:var(--green); border:1.5px solid #81C784; color:#2E7D32; }
+  .notice.error { background:#FDECEA; border:1.5px solid #EF9A9A; color:#C62828; }
+
+  .form-footer { border-top:1px solid var(--smoke); padding:1rem 2.5rem; font-size:.75rem; color:var(--mid); text-align:center; }
+
+  @media(max-width:540px) {
+    .form-body,.form-header { padding:1.5rem 1.2rem; }
+    .form-footer { padding:1rem 1.2rem; }
+    .field-grid { grid-template-columns:1fr; }
+    .field-grid .full { grid-column:1; }
+    .size-grid { grid-template-columns:repeat(auto-fill,minmax(75px,1fr)); }
+  }
+  @media print {
+    body { background:white; padding:0; }
+    .form-wrap { box-shadow:none; border-radius:0; }
+    .submit-wrap { display:none; }
+  }
+</style>
+</head>
+<body>
+<div class="form-wrap">
+
+  <div class="form-header">
+    <img class="form-logo" src="Images/GTA Sitelogo.png" alt="Greater Than Apparel"/>
+    <h1>Gildan<br><span>Group Order Form</span></h1>
+    <p>Complete one form per group &nbsp;•&nbsp; All fields marked ★ are required</p>
+  </div>
+  <div class="stripe"></div>
+
+  <div class="form-body">
+    <form id="orderForm" novalidate>
+
+      <!-- 1. Group & Contact -->
+      <div class="section">
+        <div class="section-label">Group &amp; Contact Details</div>
+        <div class="field-grid">
+          <div class="field full">
+            <label>Group Name <span class="req">★</span></label>
+            <input type="text" name="Group Name" placeholder="e.g. Grace Community Group – North Branch" required/>
+          </div>
+          <div class="field">
+            <label>Contact Name <span class="req">★</span></label>
+            <input type="text" name="Contact Name" placeholder="Full name" required/>
+          </div>
+          <div class="field">
+            <label>Contact Number <span class="req">★</span></label>
+            <input type="tel" name="Contact Number" placeholder="+44 7000 000000" required/>
+          </div>
+          <div class="field full">
+            <label>Postal Address <span class="req">★</span></label>
+            <textarea name="Postal Address" placeholder="Street address, City, Postcode" required></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Order Details -->
+      <div class="section">
+        <div class="section-label">Order Details</div>
+        <div class="field-grid">
+          <div class="field">
+            <label>T-Shirt Colour <span class="req">★</span></label>
+            <input type="text" name="T-Shirt Colour" placeholder="e.g. Royal Blue" required/>
+          </div>
+          <div class="field">
+            <label>Print / Design Notes</label>
+            <input type="text" name="Print / Design Notes" placeholder="e.g. Front only, white print"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Sizes -->
+      <div class="section">
+        <div class="section-label">Size Breakdown</div>
+        <p style="font-size:.82rem;color:var(--mid);margin-bottom:1rem;">Enter the quantity needed for each size. Leave as 0 if not required.</p>
+        <div class="size-grid" id="sizeGrid"></div>
+        <div id="sizeHiddenFields"></div>
+        <div class="totals-bar">
+          <span class="t-label">Total Quantity</span>
+          <span class="t-value" id="totalQty">0</span>
+        </div>
+      </div>
+
+      <!-- 4. Notes -->
+      <div class="section">
+        <div class="section-label">Additional Notes</div>
+        <div class="field">
+          <textarea name="Additional Notes" placeholder="Any special requests, deadlines, or other information…" style="min-height:80px;"></textarea>
+        </div>
+      </div>
+
+      <div class="notice success" id="successBanner">
+        ✅ Order submitted! A copy has been sent to info@greaterthanapparel.co.uk — we'll be in touch shortly.
+      </div>
+      <div class="notice error" id="errorBanner">
+        ❌ Something went wrong. Please try again or email <strong>info@greaterthanapparel.co.uk</strong> directly.
+      </div>
+
+      <div class="submit-wrap">
+        <button type="submit" id="submitBtn">Submit Order →</button>
+        <button type="button" class="print-btn" onclick="window.print()">🖨 Print / Save as PDF</button>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="form-footer">
+    Fields marked ★ are required &nbsp;•&nbsp; Submissions are sent to info@greaterthanapparel.co.uk
+  </div>
+</div>
+
+<script>
+  const FORMSPREE_ID = 'mwvyolvb';
+
+  const SIZE_GROUPS = [
+    { label: "Children's Sizes", sizes: ["4-5","5-6","7-8","9-11","12-14"] },
+    { label: "Adult Sizes",      sizes: ["S","M","L","XL","XXL","XXXL"] }
+  ];
+  const SIZES       = SIZE_GROUPS.flatMap(g => g.sizes);
+  const grid        = document.getElementById('sizeGrid');
+  const hiddenDiv   = document.getElementById('sizeHiddenFields');
+  const totalQtyEl  = document.getElementById('totalQty');
+  const submitBtn   = document.getElementById('submitBtn');
+
+  SIZE_GROUPS.forEach(group => {
+    const header = document.createElement('div');
+    header.className = 'size-group-header';
+    header.textContent = group.label;
+    grid.appendChild(header);
+
+    group.sizes.forEach(sz => {
+      const tile = document.createElement('div');
+      tile.className = 'size-item';
+      tile.innerHTML = `
+        <span class="size-name">${sz}</span>
+        <input type="number" class="qty-input" value="0" min="0" step="1"
+               aria-label="Quantity for size ${sz}" data-size="${sz}"/>
+      `;
+      grid.appendChild(tile);
+
+      const hidden = document.createElement('input');
+      hidden.type           = 'hidden';
+      hidden.name           = `Size ${sz}`;
+      hidden.value          = '0';
+      hidden.dataset.mirror = sz;
+      hiddenDiv.appendChild(hidden);
+    });
+  });
+
+  grid.addEventListener('focus', e => {
+    if (e.target.classList.contains('qty-input')) e.target.select();
+  }, true);
+
+  const totalHidden   = document.createElement('input');
+  totalHidden.type    = 'hidden';
+  totalHidden.name    = 'Total Quantity';
+  totalHidden.id      = 'totalHidden';
+  hiddenDiv.appendChild(totalHidden);
+
+  function recalc() {
+    let total = 0;
+    document.querySelectorAll('.qty-input').forEach(inp => {
+      const qty = Math.max(0, parseInt(inp.value) || 0);
+      total += qty;
+      hiddenDiv.querySelector(`[data-mirror="${inp.dataset.size}"]`).value = qty;
+    });
+    totalHidden.value      = total;
+    totalQtyEl.textContent = total;
+    totalQtyEl.classList.remove('animate');
+    void totalQtyEl.offsetWidth;
+    totalQtyEl.classList.add('animate');
+  }
+
+  grid.addEventListener('input', recalc);
+
+  document.getElementById('orderForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    document.getElementById('successBanner').classList.remove('show');
+    document.getElementById('errorBanner').classList.remove('show');
+    submitBtn.disabled    = true;
+    submitBtn.textContent = 'Sending…';
+
+    recalc();
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method:  'POST',
+        body:    new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+
+      if (res.ok) {
+        document.getElementById('successBanner').classList.add('show');
+        form.reset();
+        document.querySelectorAll('.qty-input').forEach(i => i.value = 0);
+        recalc();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const json = await res.json().catch(() => ({}));
+        console.error('Formspree error:', json);
+        document.getElementById('errorBanner').classList.add('show');
+      }
+    } catch (err) {
+      console.error('Network error:', err);
+      document.getElementById('errorBanner').classList.add('show');
+    } finally {
+      submitBtn.disabled    = false;
+      submitBtn.textContent = 'Submit Order →';
+    }
+  });
+</script>
+</body>
+</html>

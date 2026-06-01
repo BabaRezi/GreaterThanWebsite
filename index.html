@@ -1009,6 +1009,15 @@ footer{padding:68px 5% 42px;background:var(--ink)}
   ></iframe>
 </div>
 
+<div class="page" id="page-gildan-orders" style="min-height:100vh;padding-top:72px">
+  <iframe
+    src="gildan_order_form.html"
+    title="Gildan Group Order Form"
+    style="width:100%;border:none;min-height:calc(100vh - 72px);display:block"
+    onload="this.style.height=(this.contentDocument.body.scrollHeight+40)+'px'"
+  ></iframe>
+</div>
+
 <div class="toast" id="toast"></div>
 <div class="success-ov" id="success-ov">
   <div class="success-card">
@@ -1024,8 +1033,8 @@ footer{padding:68px 5% 42px;background:var(--ink)}
 let cart=JSON.parse(localStorage.getItem('gt_cart')||'[]'),cartOpen=false,mobOpen=false;
 let curP={name:'',price:''};
 
-const PAGE_SLUGS={'home':'/','shop':'/shop','about':'/about','contact':'/contact','custom':'/custom','church-orders':'/group-orders'};
-const SLUG_PAGES={'/':'home','/shop':'shop','/about':'about','/contact':'contact','/custom':'custom','/group-orders':'church-orders'};
+const PAGE_SLUGS={'home':'/','shop':'/shop','about':'/about','contact':'/contact','custom':'/custom','church-orders':'/group-orders','gildan-orders':'/groupordergildan'};
+const SLUG_PAGES={'/':'home','/shop':'shop','/about':'about','/contact':'contact','/custom':'custom','/group-orders':'church-orders','/groupordergildan':'gildan-orders'};
 function showPage(n,noHistory){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   const p=document.getElementById('page-'+n);
